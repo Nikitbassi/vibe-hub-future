@@ -1,9 +1,10 @@
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
 
 const LifeAtNB: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
@@ -56,11 +57,64 @@ const LifeAtNB: React.FC = () => {
     },
   ];
 
-  // CSS for animation
+  // CSS for enhanced animations
   const animationStyles = `
+    .hidden-element {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s cubic-bezier(0.17, 0.55, 0.55, 1);
+    }
+    
     .hidden-element.show {
       opacity: 1;
       transform: translateY(0);
+    }
+    
+    .insta-post {
+      transition: all 0.4s cubic-bezier(0.17, 0.55, 0.55, 1);
+    }
+    
+    .insta-post:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      z-index: 10;
+    }
+    
+    .insta-post.active {
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+      z-index: 20;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.1);
+      }
+    }
+    
+    .follow-btn {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .follow-btn:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(45deg, rgba(255,122,0,0), rgba(255,122,0,0.2), rgba(255,122,0,0));
+      transform: translateX(-100%);
+      transition: transform 0.6s;
+      z-index: -1;
+    }
+    
+    .follow-btn:hover:before {
+      transform: translateX(100%);
     }
   `;
 
@@ -80,18 +134,25 @@ const LifeAtNB: React.FC = () => {
           {instagramPosts.map((post, index) => (
             <div 
               key={post.id}
-              className="bg-white/5 rounded-xl overflow-hidden hover:transform hover:scale-[1.02] transition-all duration-300 cursor-hover"
+              className={`insta-post bg-white/5 rounded-xl overflow-hidden transition-all duration-300 cursor-hover relative ${activeIndex === index ? 'active' : ''}`}
               style={{ animationDelay: `${0.1 * index}s` }}
+              onMouseEnter={() => setActiveIndex(index)}
+              onMouseLeave={() => setActiveIndex(null)}
             >
-              <div className="aspect-square w-full">
+              <div className="aspect-square w-full overflow-hidden">
                 <img 
                   src={post.imageUrl}
                   alt={`Instagram post ${post.id}`}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-all duration-500 hover:scale-105"
                 />
               </div>
               <div className="p-4">
                 <p className="text-sm text-nbgray">{post.caption}</p>
+              </div>
+              <div className="absolute top-3 right-3 bg-white/10 backdrop-blur-md rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                  <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
+                </svg>
               </div>
             </div>
           ))}
@@ -102,7 +163,7 @@ const LifeAtNB: React.FC = () => {
             href="https://www.instagram.com/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-gradient font-medium cursor-hover"
+            className="follow-btn inline-flex items-center gap-2 text-gradient font-medium cursor-hover px-6 py-3 rounded-full border border-nborange/50 hover:border-nborange transition-all duration-300"
           >
             Follow us on Instagram
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">

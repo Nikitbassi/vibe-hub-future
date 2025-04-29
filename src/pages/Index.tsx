@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import AboutUs from '../components/AboutUs';
 import LifeAtNB from '../components/LifeAtNB';
+import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 import AnimatedCursor from '../components/AnimatedCursor';
 
@@ -41,6 +42,7 @@ const Index = () => {
       <Hero />
       <AboutUs />
       <LifeAtNB />
+      <FAQ />
       <Footer />
     </div>
   );
