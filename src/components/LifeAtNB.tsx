@@ -37,7 +37,7 @@ const LifeAtNB: React.FC = () => {
     {
       id: 3,
       imageUrl: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b',
-      caption: 'Tech setup for today's shoot! #production #tech',
+      caption: "Tech setup for today's shoot! #production #tech",
     },
     {
       id: 4,
