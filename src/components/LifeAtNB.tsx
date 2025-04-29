@@ -56,6 +56,14 @@ const LifeAtNB: React.FC = () => {
     },
   ];
 
+  // CSS for animation
+  const animationStyles = `
+    .hidden-element.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  `;
+
   return (
     <Section id="life" className="bg-nbdark/50">
       <div ref={sectionRef}>
@@ -104,12 +112,7 @@ const LifeAtNB: React.FC = () => {
         </div>
       </div>
       
-      <style jsx>{`
-        .hidden-element.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{ __html: animationStyles }} />
     </Section>
   );
 };

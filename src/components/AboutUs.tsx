@@ -22,6 +22,19 @@ const AboutUs: React.FC = () => {
     };
   }, []);
 
+  // CSS for animation
+  const animationStyles = `
+    .hidden-element.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    @keyframes scroll {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+  `;
+
   return (
     <Section id="about" className="relative overflow-hidden">
       <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
@@ -78,17 +91,7 @@ const AboutUs: React.FC = () => {
         </div>
       </div>
       
-      <style jsx>{`
-        .hidden-element.show {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        
-        @keyframes scroll {
-          0% { transform: translateY(-100%); }
-          100% { transform: translateY(100%); }
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{ __html: animationStyles }} />
     </Section>
   );
 };
