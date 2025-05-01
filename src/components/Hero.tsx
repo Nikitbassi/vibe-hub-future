@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
       <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-nborange opacity-20 blur-[100px]"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-nbyellow opacity-10 blur-[100px]"></div>
       
-      <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold text-center mb-6 font-display text-balance max-w-4xl">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-6 font-display text-balance max-w-4xl">
         <span className="block animate-on-mouse opacity-0 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
           Creating Tomorrow's
         </span>
@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
         </span>
       </h1>
       
-      <p className="text-lg md:text-xl text-nbgray max-w-2xl text-center mt-4 opacity-0 animate-fade-in" style={{ animationDelay: "1.1s", animationFillMode: "forwards" }}>
+      <p className="text-base md:text-lg max-w-2xl text-nbgray text-center mt-4 opacity-0 animate-fade-in" style={{ animationDelay: "1.1s", animationFillMode: "forwards" }}>
         NB Media is the undisputed leader in YouTube content creation with a vibrant, Gen Z-friendly culture.
       </p>
       
