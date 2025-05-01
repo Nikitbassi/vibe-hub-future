@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
 import { Button } from './ui/button';
-
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-nbdark border-t border-white/10 py-12 px-4 md:px-8">
@@ -54,8 +53,8 @@ const Footer: React.FC = () => {
           <div className="md:text-right">
             <h3 className="text-white font-bold mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="text-nbgray">hello@nbmedia.com</li>
-              <li className="text-nbgray">+1 (555) 123-4567</li>
+              <li className="text-nbgray">hello@nbmediaproductions.com</li>
+              
               <li className="text-nbgray">
                 123 Content Creator Ave<br />
                 Digital City, DC 12345
