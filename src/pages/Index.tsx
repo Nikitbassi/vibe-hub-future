@@ -149,20 +149,7 @@ const Index = () => {
         </div>
         
         {/* Scroll Indicator */}
-        <div style={{
-        animationDelay: "2.8s",
-        animationFillMode: "forwards"
-      }} onClick={() => {
-        const aboutSection = document.getElementById('about');
-        aboutSection?.scrollIntoView({
-          behavior: 'smooth'
-        });
-      }} className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-0 animate-fade-in cursor-pointer py-px">
-          <p className="text-nbgray text-sm mb-2">Scroll to explore</p>
-          <div className="w-0.5 h-12 bg-nbgray/30 relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full bg-nborange h-1/3 animate-scroll"></div>
-          </div>
-        </div>
+        
       </section>
       
       {/* About Section */}
@@ -170,7 +157,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6 hidden-element">
-              <h2 className="text-3xl md:text-5xl font-bold font-display">
+              <h2 className="text-3xl font-bold font-display md:text-4xl">
                 Creating Tomorrow's <span className="text-gradient">Digital Experiences</span> Today
               </h2>
               <p className="text-nbgray text-lg">
