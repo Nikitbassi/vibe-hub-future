@@ -204,9 +204,9 @@ const Index = () => {
             suffix: "+",
             label: "Team Members"
           }, {
-            number: 25,
+            number: 2000,
             suffix: "+",
-            label: "Channels"
+            label: "Videos Produced"
           }, {
             number: 5,
             suffix: "+",
