@@ -158,7 +158,7 @@ const Index = () => {
       <section id="about" className="px-4 md:px-8 relative overflow-hidden py-[20px]">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6 hidden-element py-[12px] px-[31px]">
+            <div className="space-y-6 hidden-element py-[29px] px-[34px] mx-0 my-[5px]">
               <h2 className="text-3xl font-bold font-display md:text-4xl">
                 Creating Tomorrow's <span className="text-gradient">Digital Experiences</span> Today
               </h2>
