@@ -5,6 +5,7 @@ import AnimatedCursor from '../components/AnimatedCursor';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+
 const Index = () => {
   // Smooth scroll for anchor links
   useEffect(() => {
@@ -193,16 +194,16 @@ const Index = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 hidden-element">
             {[{
-            number: "150M+",
-            label: "Monthly Views"
+            number: "600M+",
+            label: "Views"
           }, {
-            number: "50+",
+            number: "90+",
             label: "Team Members"
           }, {
             number: "25+",
-            label: "Content Channels"
+            label: "Channels"
           }, {
-            number: "8+",
+            number: "5+",
             label: "Years of Growth"
           }].map(stat => <div key={stat.label} className="text-center">
                 <h3 className="text-4xl md:text-5xl font-bold font-display text-gradient mb-2">{stat.number}</h3>
