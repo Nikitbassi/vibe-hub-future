@@ -13,7 +13,7 @@ const Section: React.FC<SectionProps> = ({
   fullHeight
 }) => {
   return <section id={id} className="">
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-7xl mx-auto w-full my-[29px]">
         {children}
       </div>
     </section>;
