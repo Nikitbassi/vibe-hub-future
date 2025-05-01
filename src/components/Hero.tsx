@@ -75,8 +75,8 @@ const Hero: React.FC = () => {
         </a>
       </div>
       
-      {/* Futuristic Scroll Indicator */}
-      <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center justify-center">
+      {/* Futuristic Scroll Indicator - Moved further down */}
+      <div className="absolute bottom-4 left-0 right-0 flex flex-col items-center justify-center">
         <div 
           onClick={handleScrollDown}
           className="group cursor-pointer opacity-0 animate-fade-in" 
