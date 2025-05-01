@@ -172,7 +172,7 @@ const Index = () => {
           
           <div className="grid grid-cols-2 gap-4 md:gap-6 hidden-element">
             <div className="aspect-square rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Team collaboration" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+              <img alt="Team collaboration" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/62735034-729d-42a0-b187-75b7055634d7.jpg" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden translate-y-8">
               <img alt="Content planning" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/e910660d-46fb-4ba2-a505-e463f7bc0cc7.png" />
@@ -181,7 +181,7 @@ const Index = () => {
               <img alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/5ff7b329-f899-4833-bbf4-ae099793e34e.jpg" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f" alt="Equipment setup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+              <img alt="Equipment setup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/641bc89a-846e-463d-b8a3-ecfda5b8b99d.jpg" />
             </div>
           </div>
         </div>
