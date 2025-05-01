@@ -37,9 +37,11 @@ const Navbar: React.FC = () => {
       >
         <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
           <Link to="/" className="cursor-hover">
-            <h1 className="text-xl md:text-2xl font-bold font-display">
-              <span className="text-gradient">NB</span>Media
-            </h1>
+            <img 
+              src="/lovable-uploads/93f09965-ef8e-4015-becf-2e5ccb829481.png" 
+              alt="NB Media Logo" 
+              className="h-8 md:h-10"
+            />
           </Link>
           
           {/* Desktop Menu */}
@@ -121,6 +123,13 @@ const Navbar: React.FC = () => {
         } md:hidden`}
       >
         <nav className="container mx-auto px-8 py-10 flex flex-col h-full">
+          <div className="flex justify-center mb-8">
+            <img 
+              src="/lovable-uploads/93f09965-ef8e-4015-becf-2e5ccb829481.png" 
+              alt="NB Media Logo" 
+              className="h-10"
+            />
+          </div>
           <Link 
             to="/" 
             className={`text-3xl font-display my-4 cursor-hover ${
