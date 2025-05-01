@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -118,20 +117,20 @@ const Index = () => {
             NB Media is the undisputed leader in YouTube content creation with a vibrant, Gen Z-friendly culture.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12 opacity-0 animate-fade-in" style={{animationDelay: "2.4s", animationFillMode: "forwards"}}>
-            <Link to="/careers">
+          <div className="flex flex-col items-center sm:flex-row gap-4 justify-center mt-12 opacity-0 animate-fade-in" style={{animationDelay: "2.4s", animationFillMode: "forwards"}}>
+            <Link to="/careers" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-500 hover:shadow-glow hover:scale-105"
+                className="w-full sm:w-auto bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-500 hover:shadow-glow hover:scale-105"
               >
                 Join Our Team
               </Button>
             </Link>
-            <Link to="/about">
+            <Link to="/about" className="w-full sm:w-auto">
               <Button 
                 size="lg" 
                 variant="outline"
-                className="border-white/20 text-white px-8 py-6 hover:bg-white/10 transition-all duration-300"
+                className="w-full sm:w-auto border-white/20 text-white px-8 py-6 hover:bg-white/10 transition-all duration-300"
               >
                 Our Story
               </Button>
