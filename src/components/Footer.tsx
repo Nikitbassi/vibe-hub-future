@@ -1,7 +1,10 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
 import { Button } from './ui/button';
+import { MapPin, Phone } from 'lucide-react';
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-nbdark border-t border-white/10 py-12 px-4 md:px-8">
@@ -52,12 +55,19 @@ const Footer: React.FC = () => {
           
           <div className="md:text-right">
             <h3 className="text-white font-bold mb-4">Contact</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li className="text-nbgray">hello@nbmediaproductions.com</li>
-              
-              <li className="text-nbgray">
-                123 Content Creator Ave<br />
-                Digital City, DC 12345
+              <li className="flex items-center md:justify-end gap-2 text-nbgray">
+                <Phone size={18} className="flex-shrink-0 text-nborange" />
+                <span>+91 7018029708</span>
+              </li>
+              <li className="flex md:justify-end gap-2 text-nbgray">
+                <MapPin size={18} className="flex-shrink-0 text-nborange mt-1" />
+                <span className="flex-1">
+                  5th Floor, Cyber cube C201- 202, Phase 8B,<br />
+                  Industrial Area, Sector 74,<br />
+                  Sahibzada Ajit Singh Nagar, Punjab 160055
+                </span>
               </li>
             </ul>
           </div>
