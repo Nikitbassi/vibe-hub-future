@@ -1,6 +1,15 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
+import { Instagram } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import SocialLinks from './SocialLinks';
 
 const LifeAtNB: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -54,6 +63,30 @@ const LifeAtNB: React.FC = () => {
       id: 6,
       imageUrl: 'https://images.unsplash.com/photo-1486718448742-163732cd1544',
       caption: 'Creative minds at work! #teamwork #nbmedia',
+    },
+  ];
+
+  // Instagram Reels - Featured content from Instagram
+  const instagramReels = [
+    {
+      id: 'CyPXOBkA0kN',
+      caption: 'Content planning with the team 🎬',
+      type: 'reel',
+    },
+    {
+      id: 'CvIT65CIStP',
+      caption: 'Behind the scenes magic ✨',
+      type: 'reel',
+    },
+    {
+      id: 'CuRY74-vEEu',
+      caption: 'Our latest project launch 🚀',
+      type: 'reel',
+    },
+    {
+      id: 'CsSYq36P0Uf',
+      caption: 'Office vibes check ☀️',
+      type: 'post',
     },
   ];
 
@@ -116,6 +149,38 @@ const LifeAtNB: React.FC = () => {
     .follow-btn:hover:before {
       transform: translateX(100%);
     }
+
+    .reel-container {
+      position: relative;
+      aspect-ratio: 9/16;
+      overflow: hidden;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .reel-container:hover {
+      transform: scale(1.02);
+    }
+
+    .reel-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+      color: white;
+    }
+
+    .instagram-embed {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      overflow: hidden;
+      background: #000;
+      border-radius: 12px;
+    }
   `;
 
   return (
@@ -128,8 +193,51 @@ const LifeAtNB: React.FC = () => {
         <p className="text-lg text-nbgray text-center max-w-3xl mx-auto mb-12 opacity-0 hidden-element transition-all duration-1000 delay-300" style={{ transform: 'translateY(40px)' }}>
           Get a glimpse into our vibrant culture, creative process, and the amazing team that makes it all happen. We're not just colleagues, we're a family of creators.
         </p>
+
+        {/* Instagram Reels Section */}
+        <div className="mb-16 opacity-0 hidden-element transition-all duration-1000 delay-400" style={{ transform: 'translateY(40px)' }}>
+          <div className="flex items-center justify-center mb-8">
+            <Instagram className="mr-2 text-white" />
+            <h3 className="text-2xl font-bold font-display">Our Latest Reels</h3>
+          </div>
+          
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="py-4">
+              {instagramReels.map((reel) => (
+                <CarouselItem key={reel.id} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
+                  <div className="reel-container bg-nbdark/30 border border-white/10">
+                    <iframe
+                      className="instagram-embed"
+                      src={`https://www.instagram.com/p/${reel.id}/embed/captioned/`}
+                      title={`Instagram ${reel.type}: ${reel.caption}`}
+                      loading="lazy"
+                      allowTransparency={true}
+                      allowFullScreen={true}
+                    ></iframe>
+                    <div className="reel-overlay">
+                      <p className="text-sm">{reel.caption}</p>
+                      <div className="mt-2 flex items-center text-xs text-white/70">
+                        <span>@nbmediaa</span>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-4">
+              <CarouselPrevious className="relative inset-auto mx-1" />
+              <CarouselNext className="relative inset-auto mx-1" />
+            </div>
+          </Carousel>
+        </div>
         
-        {/* Instagram-like feed */}
+        {/* Instagram Feed Section */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 opacity-0 hidden-element transition-all duration-1000 delay-600" style={{ transform: 'translateY(40px)' }}>
           {instagramPosts.map((post, index) => (
             <div 
@@ -170,6 +278,10 @@ const LifeAtNB: React.FC = () => {
               <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
             </svg>
           </a>
+        </div>
+
+        <div className="mt-8 text-center opacity-0 hidden-element transition-all duration-1000 delay-1000" style={{ transform: 'translateY(40px)' }}>
+          <SocialLinks className="justify-center" iconSize={24} />
         </div>
       </div>
       
