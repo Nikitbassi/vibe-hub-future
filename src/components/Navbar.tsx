@@ -1,11 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,15 @@ const Navbar: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Close mobile menu when page changes
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location]);
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
 
   return (
     <>
@@ -34,17 +44,45 @@ const Navbar: React.FC = () => {
           
           {/* Desktop Menu */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/" className="text-white hover:text-nborange transition-colors duration-300 cursor-hover">
+            <Link 
+              to="/" 
+              className={`transition-colors duration-300 cursor-hover ${
+                isActive('/') ? 'text-nborange' : 'text-white hover:text-nborange'
+              }`}
+            >
               Home
             </Link>
-            <a href="#about" className="text-white hover:text-nborange transition-colors duration-300 cursor-hover">
+            <Link 
+              to="/about" 
+              className={`transition-colors duration-300 cursor-hover ${
+                isActive('/about') ? 'text-nborange' : 'text-white hover:text-nborange'
+              }`}
+            >
               About
-            </a>
-            <a href="#life" className="text-white hover:text-nborange transition-colors duration-300 cursor-hover">
+            </Link>
+            <Link 
+              to="/life-at-nb" 
+              className={`transition-colors duration-300 cursor-hover ${
+                isActive('/life-at-nb') ? 'text-nborange' : 'text-white hover:text-nborange'
+              }`}
+            >
               Life at NB
-            </a>
-            <Link to="/careers" className="text-white hover:text-nborange transition-colors duration-300 cursor-hover">
+            </Link>
+            <Link 
+              to="/careers" 
+              className={`transition-colors duration-300 cursor-hover ${
+                isActive('/careers') ? 'text-nborange' : 'text-white hover:text-nborange'
+              }`}
+            >
               Careers
+            </Link>
+            <Link 
+              to="/blog" 
+              className={`transition-colors duration-300 cursor-hover ${
+                isActive('/blog') ? 'text-nborange' : 'text-white hover:text-nborange'
+              }`}
+            >
+              Blog
             </Link>
             <SocialLinks iconSize={18} />
           </nav>
@@ -85,31 +123,43 @@ const Navbar: React.FC = () => {
         <nav className="container mx-auto px-8 py-10 flex flex-col h-full">
           <Link 
             to="/" 
-            className="text-3xl font-display my-4 cursor-hover"
-            onClick={() => setMenuOpen(false)}
+            className={`text-3xl font-display my-4 cursor-hover ${
+              isActive('/') ? 'text-gradient' : ''
+            }`}
           >
             Home
           </Link>
-          <a 
-            href="#about" 
-            className="text-3xl font-display my-4 cursor-hover"
-            onClick={() => setMenuOpen(false)}
+          <Link 
+            to="/about" 
+            className={`text-3xl font-display my-4 cursor-hover ${
+              isActive('/about') ? 'text-gradient' : ''
+            }`}
           >
             About
-          </a>
-          <a 
-            href="#life" 
-            className="text-3xl font-display my-4 cursor-hover"
-            onClick={() => setMenuOpen(false)}
+          </Link>
+          <Link 
+            to="/life-at-nb" 
+            className={`text-3xl font-display my-4 cursor-hover ${
+              isActive('/life-at-nb') ? 'text-gradient' : ''
+            }`}
           >
             Life at NB
-          </a>
+          </Link>
           <Link 
             to="/careers" 
-            className="text-3xl font-display my-4 cursor-hover"
-            onClick={() => setMenuOpen(false)}
+            className={`text-3xl font-display my-4 cursor-hover ${
+              isActive('/careers') ? 'text-gradient' : ''
+            }`}
           >
             Careers
+          </Link>
+          <Link 
+            to="/blog" 
+            className={`text-3xl font-display my-4 cursor-hover ${
+              isActive('/blog') ? 'text-gradient' : ''
+            }`}
+          >
+            Blog
           </Link>
           <div className="mt-auto mb-8">
             <SocialLinks iconSize={24} className="justify-start" />

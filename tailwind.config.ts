@@ -66,9 +66,10 @@ export default {
 				// NB Media custom colors
 				nbdark: '#0F0F13',
 				nblight: '#F5F5F7',
-				nborange: '#FF7A00',
-				nbyellow: '#FFCC00',
+				nborange: '#E53935', // Updated to match brand
+				nbyellow: '#FBC02D', // Updated to match brand
 				nbgray: '#8E9196',
+				nborangedark: '#F57C00', // Additional orange shade
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -103,6 +104,22 @@ export default {
 				'gradient-flow': {
 					'0%, 100%': { backgroundPosition: '0% 50%' },
 					'50%': { backgroundPosition: '100% 50%' }
+				},
+				'scroll': {
+					'0%': { transform: 'translateY(-100%)' },
+					'100%': { transform: 'translateY(100%)' }
+				},
+				'pulse': {
+					'0%, 100%': { opacity: '1', transform: 'scale(1)' },
+					'50%': { opacity: '0.7', transform: 'scale(1.1)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'sparkle': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.4' }
 				}
 			},
 			animation: {
@@ -112,7 +129,11 @@ export default {
 				'fade-out': 'fade-out 0.6s ease-out',
 				'slide-up': 'slide-up 0.8s ease-out',
 				'slide-down': 'slide-down 0.8s ease-out',
-				'gradient-flow': 'gradient-flow 3s ease infinite'
+				'gradient-flow': 'gradient-flow 3s ease infinite',
+				'scroll': 'scroll 1.5s ease-in-out infinite',
+				'pulse': 'pulse 3s ease-in-out infinite',
+				'float': 'float 5s ease-in-out infinite',
+				'sparkle': 'sparkle 2s ease-in-out infinite'
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
