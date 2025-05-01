@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import CountUp from '@/components/CountUp';
+import FAQ from '@/components/FAQ';
 
 const Index = () => {
   // Smooth scroll for anchor links
@@ -290,6 +291,9 @@ const Index = () => {
           </Link>
         </div>
       </section>
+      
+      {/* FAQs Section */}
+      <FAQ />
       
       {/* Latest Blog Posts */}
       <section id="blog-teaser" className="py-24 px-4 md:px-8 relative overflow-hidden">
