@@ -155,7 +155,7 @@ const Index = () => {
       </section>
       
       {/* About Section */}
-      <section id="about" className="py-24 px-4 md:px-8 relative overflow-hidden">
+      <section id="about" className="px-4 md:px-8 relative overflow-hidden py-[20px]">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-6 hidden-element">
@@ -293,7 +293,7 @@ const Index = () => {
       <FAQ />
       
       {/* Join Our Team Button - Moved from Footer */}
-      <div className="flex justify-center mx-0 my-0 px-0 py-[9px]">
+      <div className="flex justify-center mx-0 my-0 px-0 py-[31px]">
         <a href="https://www.keka.com/" target="_blank" rel="noopener noreferrer">
           <Button size="lg" className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-500 hover:shadow-glow hover:scale-105 flex items-center gap-2">
             <BriefcaseBusiness className="w-5 h-5" />
