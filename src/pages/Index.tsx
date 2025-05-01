@@ -8,7 +8,6 @@ import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
 import CountUp from '@/components/CountUp';
 import FAQ from '@/components/FAQ';
 import Section from '@/components/Section';
-
 const Index = () => {
   // Smooth scroll for anchor links
   useEffect(() => {
@@ -29,10 +28,9 @@ const Index = () => {
       }
     };
     document.addEventListener('click', handleAnchorClick);
-    
+
     // Ensure page loads at the top
     window.scrollTo(0, 0);
-    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
     };
@@ -180,7 +178,7 @@ const Index = () => {
               <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Content planning" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden -translate-y-8">
-              <img src="https://images.unsplash.com/photo-1626908013943-df2991bb9f89" alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+              <img alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/5ff7b329-f899-4833-bbf4-ae099793e34e.jpg" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden">
               <img src="https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f" alt="Equipment setup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
@@ -191,22 +189,22 @@ const Index = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 hidden-element">
           {[{
-            number: 600,
-            suffix: "M+",
-            label: "Views"
-          }, {
-            number: 90,
-            suffix: "+",
-            label: "Team Members"
-          }, {
-            number: 2000,
-            suffix: "+",
-            label: "Videos Produced"
-          }, {
-            number: 5,
-            suffix: "+",
-            label: "Years of Growth"
-          }].map(stat => <div key={stat.label} className="text-center">
+          number: 600,
+          suffix: "M+",
+          label: "Views"
+        }, {
+          number: 90,
+          suffix: "+",
+          label: "Team Members"
+        }, {
+          number: 2000,
+          suffix: "+",
+          label: "Videos Produced"
+        }, {
+          number: 5,
+          suffix: "+",
+          label: "Years of Growth"
+        }].map(stat => <div key={stat.label} className="text-center">
                 <h3 className="text-4xl md:text-5xl font-bold font-display text-gradient mb-2">
                   <CountUp end={stat.number} suffix={stat.suffix} className="text-gradient" />
                 </h3>
