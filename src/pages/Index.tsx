@@ -296,7 +296,7 @@ const Index = () => {
       {/* Join Our Team Button - Moved from Footer */}
       <div className="py-16 flex justify-center">
         <a href="https://www.keka.com/" target="_blank" rel="noopener noreferrer">
-          <Button size="lg" className="text-white font-medium px-8 py-6 transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center gap-2 bg-orange-500 hover:bg-orange-400 rounded-md">
+          <Button size="lg" className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-500 hover:shadow-glow hover:scale-105 flex items-center gap-2">
             <BriefcaseBusiness className="w-5 h-5" />
             Join Our Team
           </Button>
