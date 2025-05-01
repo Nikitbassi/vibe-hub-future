@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
 import CountUp from '@/components/CountUp';
 import FAQ from '@/components/FAQ';
+import Section from '@/components/Section';
+
 const Index = () => {
   // Smooth scroll for anchor links
   useEffect(() => {
@@ -149,52 +151,48 @@ const Index = () => {
             </Link>
           </div>
         </div>
-        
-        {/* Scroll Indicator */}
-        
       </section>
       
       {/* About Section */}
-      <section id="about" className="px-4 md:px-8 relative overflow-hidden py-[20px]">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6 hidden-element mx-0 my-0 px-0 py-[68px]">
-              <h2 className="text-3xl font-bold font-display md:text-4xl">
-                Creating Tomorrow's <span className="text-gradient">Digital Experiences</span> Today
-              </h2>
-              <p className="text-nbgray text-lg">
-                NB Media is more than just a content creation company. We're pioneers in digital storytelling, crafting experiences that captivate Gen Z and beyond.
-              </p>
-              <p className="text-nbgray text-lg">
-                With millions of views across multiple platforms, we've redefined what it means to create engaging, authentic content that resonates with today's audience.
-              </p>
-              <div className="pt-6">
-                <Link to="/about" className="inline-flex items-center text-gradient font-medium hover:underline">
-                  Learn more about us 
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Link>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4 md:gap-6 hidden-element">
-              <div className="aspect-square rounded-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Team collaboration" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-              </div>
-              <div className="aspect-square rounded-lg overflow-hidden translate-y-8">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Content planning" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-              </div>
-              <div className="aspect-square rounded-lg overflow-hidden -translate-y-8">
-                <img src="https://images.unsplash.com/photo-1626908013943-df2991bb9f89" alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-              </div>
-              <div className="aspect-square rounded-lg overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f" alt="Equipment setup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
-              </div>
+      <Section id="about" className="relative overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="space-y-6 hidden-element">
+            <h2 className="text-3xl font-bold font-display md:text-4xl">
+              Creating Tomorrow's <span className="text-gradient">Digital Experiences</span> Today
+            </h2>
+            <p className="text-nbgray text-lg">
+              NB Media is more than just a content creation company. We're pioneers in digital storytelling, crafting experiences that captivate Gen Z and beyond.
+            </p>
+            <p className="text-nbgray text-lg">
+              With millions of views across multiple platforms, we've redefined what it means to create engaging, authentic content that resonates with today's audience.
+            </p>
+            <div className="pt-6">
+              <Link to="/about" className="inline-flex items-center text-gradient font-medium hover:underline">
+                Learn more about us 
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </Link>
             </div>
           </div>
           
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 hidden-element">
-            {[{
+          <div className="grid grid-cols-2 gap-4 md:gap-6 hidden-element">
+            <div className="aspect-square rounded-lg overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Team collaboration" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden translate-y-8">
+              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Content planning" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden -translate-y-8">
+              <img src="https://images.unsplash.com/photo-1626908013943-df2991bb9f89" alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+            </div>
+            <div className="aspect-square rounded-lg overflow-hidden">
+              <img src="https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f" alt="Equipment setup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+            </div>
+          </div>
+        </div>
+        
+        {/* Stats */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 hidden-element">
+          {[{
             number: 600,
             suffix: "M+",
             label: "Views"
@@ -216,63 +214,60 @@ const Index = () => {
                 </h3>
                 <p className="text-nbgray">{stat.label}</p>
               </div>)}
-          </div>
         </div>
-      </section>
+      </Section>
       
       {/* Life at NB Teaser */}
-      <section id="life-teaser" className="py-24 px-4 md:px-8 bg-black/30 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16 hidden-element">
-            <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-              Life at <span className="text-gradient">NB Media</span>
-            </h2>
-            <p className="text-nbgray text-lg max-w-2xl mx-auto">
-              From brainstorming sessions to launch celebrations, get a glimpse of what it's like to be part of our creative family.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 hidden-element">
-            <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
-              <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a" alt="NB Media life" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                <h3 className="text-xl font-bold mb-2">Team Culture</h3>
-                <p className="text-nbgray text-sm">Where creativity meets collaboration in a dynamic environment.</p>
-              </div>
-            </div>
-            
-            <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
-              <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
-              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2" alt="NB Media office" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                <h3 className="text-xl font-bold mb-2">Creative Spaces</h3>
-                <p className="text-nbgray text-sm">Designed to inspire innovation and out-of-the-box thinking.</p>
-              </div>
-            </div>
-            
-            <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
-              <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
-              <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0" alt="NB Media studio" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                <h3 className="text-xl font-bold mb-2">Studio Magic</h3>
-                <p className="text-nbgray text-sm">State-of-the-art equipment for top-tier content production.</p>
-              </div>
+      <Section id="life-teaser" className="bg-black/30 relative overflow-hidden" padding="lg">
+        <div className="text-center mb-16 hidden-element">
+          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
+            Life at <span className="text-gradient">NB Media</span>
+          </h2>
+          <p className="text-nbgray text-lg max-w-2xl mx-auto">
+            From brainstorming sessions to launch celebrations, get a glimpse of what it's like to be part of our creative family.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 hidden-element">
+          <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
+            <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a" alt="NB Media life" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <h3 className="text-xl font-bold mb-2">Team Culture</h3>
+              <p className="text-nbgray text-sm">Where creativity meets collaboration in a dynamic environment.</p>
             </div>
           </div>
           
-          <div className="mt-12 text-center hidden-element">
-            <Link to="/life-at-nb">
-              <Button size="lg" className="border border-nborange text-white bg-transparent hover:bg-nborange/20 transition-all duration-300 px-8 py-4">
-                Explore Life at NB
-              </Button>
-            </Link>
+          <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
+            <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2" alt="NB Media office" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <h3 className="text-xl font-bold mb-2">Creative Spaces</h3>
+              <p className="text-nbgray text-sm">Designed to inspire innovation and out-of-the-box thinking.</p>
+            </div>
+          </div>
+          
+          <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
+            <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
+            <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0" alt="NB Media studio" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+              <h3 className="text-xl font-bold mb-2">Studio Magic</h3>
+              <p className="text-nbgray text-sm">State-of-the-art equipment for top-tier content production.</p>
+            </div>
           </div>
         </div>
-      </section>
+        
+        <div className="mt-12 text-center hidden-element">
+          <Link to="/life-at-nb">
+            <Button size="lg" className="border border-nborange text-white bg-transparent hover:bg-nborange/20 transition-all duration-300 px-8 py-4">
+              Explore Life at NB
+            </Button>
+          </Link>
+        </div>
+      </Section>
       
       {/* CTA Careers */}
-      <section id="careers-teaser" className="py-24 px-4 md:px-8 relative overflow-hidden">
+      <Section id="careers-teaser" className="relative overflow-hidden" padding="lg">
         <div className="absolute inset-0 bg-gradient-to-r from-nborange/20 to-nbyellow/20"></div>
         <div className="max-w-3xl mx-auto relative z-10 text-center hidden-element">
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
@@ -287,22 +282,20 @@ const Index = () => {
             </Button>
           </Link>
         </div>
-      </section>
+      </Section>
       
       {/* FAQs Section */}
       <FAQ />
       
       {/* Join Our Team Button - Moved from Footer */}
-      <div className="flex justify-center mx-0 rounded-none my-0 px-0 py-[19px]">
+      <Section padding="sm" maxWidth="7xl" className="text-center">
         <a href="https://www.keka.com/" target="_blank" rel="noopener noreferrer">
           <Button size="lg" className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-500 hover:shadow-glow hover:scale-105 flex items-center gap-2">
             <BriefcaseBusiness className="w-5 h-5" />
             Join Our Team
           </Button>
         </a>
-      </div>
-      
-      {/* Latest Blog Posts */}
+      </Section>
       
       <Footer />
       

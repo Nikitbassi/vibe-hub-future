@@ -9,6 +9,7 @@ interface SectionProps {
   fullHeight?: boolean;
   padding?: 'none' | 'xs' | 'sm' | 'md' | 'lg';
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | 'full';
+  spacing?: 'none' | 'xs' | 'sm' | 'md' | 'lg'; // Added spacing prop for consistent vertical gaps
 }
 
 const Section: React.FC<SectionProps> = ({
@@ -17,13 +18,14 @@ const Section: React.FC<SectionProps> = ({
   id,
   fullHeight,
   padding = 'md',
-  maxWidth = '7xl'
+  maxWidth = '7xl',
+  spacing = 'md'
 }) => {
   const paddingClasses = {
     none: '',
-    xs: 'py-3',
-    sm: 'py-6',
-    md: 'py-12',
+    xs: 'py-4',
+    sm: 'py-8',
+    md: 'py-16',
     lg: 'py-24'
   };
   
@@ -42,6 +44,14 @@ const Section: React.FC<SectionProps> = ({
     'full': 'max-w-full'
   };
 
+  const spacingClasses = {
+    none: '',
+    xs: 'space-y-3',
+    sm: 'space-y-6',
+    md: 'space-y-8',
+    lg: 'space-y-12'
+  };
+
   return (
     <section 
       id={id} 
@@ -51,7 +61,11 @@ const Section: React.FC<SectionProps> = ({
         className
       )}
     >
-      <div className={cn(maxWidthClasses[maxWidth], "mx-auto w-full px-4 md:px-8")}>
+      <div className={cn(
+        maxWidthClasses[maxWidth], 
+        spacingClasses[spacing],
+        "mx-auto w-full px-4 md:px-8"
+      )}>
         {children}
       </div>
     </section>
