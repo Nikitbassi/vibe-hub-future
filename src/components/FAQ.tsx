@@ -1,10 +1,13 @@
+
 import React, { useState } from 'react';
 import Section from './Section';
 import { cn } from '@/lib/utils';
+
 interface FAQItem {
   question: string;
   answer: string;
 }
+
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const faqItems: FAQItem[] = [{
@@ -22,13 +25,12 @@ const FAQ: React.FC = () => {
   }, {
     question: "How can I join the NB Media team?",
     answer: "We're always looking for passionate, creative individuals to join our growing team. Check out our Careers page for current openings, or reach out directly through our Contact page if you believe you have something unique to offer that isn't listed in our current positions."
-  }, {
-    question: "Can NB Media help with my project or business?",
-    answer: "While our primary focus is on creating our own content, we occasionally take on select client projects that align with our creative vision. Contact us with details about your project, and we'll let you know if it's something we can help bring to life."
   }];
+  
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
+  
   return <Section id="faq" className="relative overflow-hidden">
       <div className="absolute top-20 right-20 w-64 h-64 bg-nborange/10 rounded-full blur-[100px] -z-10"></div>
       <div className="absolute bottom-20 left-20 w-72 h-72 bg-nbyellow/10 rounded-full blur-[100px] -z-10"></div>
@@ -58,8 +60,7 @@ const FAQ: React.FC = () => {
             </div>
           </div>)}
       </div>
-      
-      
     </Section>;
 };
+
 export default FAQ;
