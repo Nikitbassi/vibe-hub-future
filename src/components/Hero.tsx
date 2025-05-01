@@ -1,5 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
+import { ScrollArea } from './ui/scroll-area';
+import { ChevronDown } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -31,6 +33,13 @@ const Hero: React.FC = () => {
       document.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
+
+  const handleScrollDown = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div 
@@ -66,14 +75,34 @@ const Hero: React.FC = () => {
         </a>
       </div>
       
-      {/* Scroll Indicator */}
-      <div 
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center opacity-0 animate-fade-in" 
-        style={{ animationDelay: "1.7s", animationFillMode: "forwards" }}
-      >
-        <p className="text-nbgray text-sm mb-2">Scroll to explore</p>
-        <div className="w-0.5 h-8 bg-nbgray/30 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full bg-nborange h-1/2 animate-[scroll_1.5s_ease-in-out_infinite]"></div>
+      {/* Futuristic Scroll Indicator */}
+      <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center justify-center">
+        <div 
+          onClick={handleScrollDown}
+          className="group cursor-pointer opacity-0 animate-fade-in" 
+          style={{ animationDelay: "1.7s", animationFillMode: "forwards" }}
+        >
+          <div className="flex flex-col items-center">
+            <p className="text-nbgray text-sm mb-2">Scroll to explore</p>
+            
+            {/* Futuristic scroll animation container */}
+            <div className="relative flex items-center justify-center w-12 h-24">
+              {/* Outer ring */}
+              <div className="absolute w-12 h-12 border-2 border-nborange/30 rounded-full animate-pulse"></div>
+              
+              {/* Middle ring */}
+              <div className="absolute w-9 h-9 border-2 border-nborange/50 rounded-full animate-[pulse_2s_infinite_0.5s]"></div>
+              
+              {/* Inner ring */}
+              <div className="absolute w-6 h-6 border-2 border-nborange rounded-full animate-[pulse_2s_infinite_1s]"></div>
+              
+              {/* Downward arrow line */}
+              <div className="absolute h-16 w-px bg-gradient-to-b from-transparent via-nborange to-transparent"></div>
+              
+              {/* Animated chevron */}
+              <ChevronDown className="absolute bottom-0 text-nborange animate-[float_1.5s_ease-in-out_infinite] w-6 h-6" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
