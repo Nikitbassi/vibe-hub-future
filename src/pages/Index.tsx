@@ -181,7 +181,7 @@ const Index = () => {
               <img alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/5ff7b329-f899-4833-bbf4-ae099793e34e.jpg" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden">
-              <img alt="Equipment setup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/641bc89a-846e-463d-b8a3-ecfda5b8b99d.jpg" />
+              <img alt="Equipment setup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/b16f164a-d784-45dd-ab2c-789efd190844.jpg" />
             </div>
           </div>
         </div>
