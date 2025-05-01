@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { cn } from '@/lib/utils';
-
 interface SectionProps {
   children: React.ReactNode;
   className?: string;
@@ -11,7 +9,6 @@ interface SectionProps {
   maxWidth?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl' | '5xl' | '6xl' | '7xl' | 'full';
   spacing?: 'none' | 'xs' | 'sm' | 'md' | 'lg'; // Added spacing prop for consistent vertical gaps
 }
-
 const Section: React.FC<SectionProps> = ({
   children,
   className,
@@ -28,7 +25,6 @@ const Section: React.FC<SectionProps> = ({
     md: 'py-16',
     lg: 'py-24'
   };
-  
   const maxWidthClasses = {
     xs: 'max-w-xs',
     sm: 'max-w-sm',
@@ -43,7 +39,6 @@ const Section: React.FC<SectionProps> = ({
     '7xl': 'max-w-7xl',
     'full': 'max-w-full'
   };
-
   const spacingClasses = {
     none: '',
     xs: 'space-y-3',
@@ -51,25 +46,6 @@ const Section: React.FC<SectionProps> = ({
     md: 'space-y-8',
     lg: 'space-y-12'
   };
-
-  return (
-    <section 
-      id={id} 
-      className={cn(
-        fullHeight ? 'min-h-screen' : '',
-        paddingClasses[padding],
-        className
-      )}
-    >
-      <div className={cn(
-        maxWidthClasses[maxWidth], 
-        spacingClasses[spacing],
-        "mx-auto w-full px-4 md:px-8"
-      )}>
-        {children}
-      </div>
-    </section>
-  );
+  return;
 };
-
 export default Section;
