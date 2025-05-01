@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -7,36 +6,46 @@ import Section from '../components/Section';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
-
 const About = () => {
   // For intersection observer animations
   useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
         }
       });
-    }, { threshold: 0.1 });
-
+    }, {
+      threshold: 0.1
+    });
     const hiddenElements = document.querySelectorAll('.hidden-element');
     hiddenElements.forEach(element => observer.observe(element));
-
     return () => {
       hiddenElements.forEach(element => observer.unobserve(element));
     };
   }, []);
-
-  const timelineData = [
-    { year: '2018', title: 'The Beginning', description: 'NB Media was founded in a small apartment with just one camera and a big dream.' },
-    { year: '2019', title: 'First Million', description: 'Hit 1 million subscribers and expanded to a small team of 5 creators.' },
-    { year: '2020', title: 'Studio Launch', description: 'Opened our first professional studio space and doubled our team size.' },
-    { year: '2022', title: 'Global Expansion', description: 'Began creating content in multiple languages and reached 10 million subscribers.' },
-    { year: '2023', title: 'Today', description: 'Leading the industry with innovative formats and a team of 50+ creative professionals.' },
-  ];
-
-  return (
-    <div className="relative min-h-screen bg-nbdark text-white overflow-hidden hide-cursor">
+  const timelineData = [{
+    year: '2018',
+    title: 'The Beginning',
+    description: 'NB Media was founded in a small apartment with just one camera and a big dream.'
+  }, {
+    year: '2019',
+    title: 'First Million',
+    description: 'Hit 1 million subscribers and expanded to a small team of 5 creators.'
+  }, {
+    year: '2020',
+    title: 'Studio Launch',
+    description: 'Opened our first professional studio space and doubled our team size.'
+  }, {
+    year: '2022',
+    title: 'Global Expansion',
+    description: 'Began creating content in multiple languages and reached 10 million subscribers.'
+  }, {
+    year: '2023',
+    title: 'Today',
+    description: 'Leading the industry with innovative formats and a team of 50+ creative professionals.'
+  }];
+  return <div className="relative min-h-screen bg-nbdark text-white overflow-hidden hide-cursor">
       <AnimatedCursor />
       <Navbar />
       
@@ -47,10 +56,16 @@ const About = () => {
           <div className="absolute bottom-0 -right-64 w-96 h-96 rounded-full bg-nbyellow/10 blur-[100px]"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 hidden-element opacity-0 animate-fade-in" style={{animationDelay: "0.2s", animationFillMode: "forwards"}}>
+            <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 hidden-element opacity-0 animate-fade-in" style={{
+            animationDelay: "0.2s",
+            animationFillMode: "forwards"
+          }}>
               Our <span className="text-gradient">Story</span>
             </h1>
-            <p className="text-lg md:text-xl text-nbgray mb-12 hidden-element opacity-0 animate-fade-in" style={{animationDelay: "0.4s", animationFillMode: "forwards"}}>
+            <p className="text-lg md:text-xl text-nbgray mb-12 hidden-element opacity-0 animate-fade-in" style={{
+            animationDelay: "0.4s",
+            animationFillMode: "forwards"
+          }}>
               From humble beginnings to industry leadership, we've been redefining content creation since day one.
             </p>
           </div>
@@ -58,7 +73,10 @@ const About = () => {
         
         {/* Timeline Section */}
         <Section className="relative">
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-12 text-center hidden-element opacity-0 animate-fade-in" style={{animationDelay: "0.6s", animationFillMode: "forwards"}}>
+          <h2 className="text-3xl md:text-4xl font-bold font-display mb-12 text-center hidden-element opacity-0 animate-fade-in" style={{
+          animationDelay: "0.6s",
+          animationFillMode: "forwards"
+        }}>
             Our <span className="text-gradient">Journey</span>
           </h2>
           
@@ -68,12 +86,10 @@ const About = () => {
             
             {/* Timeline events */}
             <div className="space-y-12 md:space-y-24 relative z-10">
-              {timelineData.map((item, index) => (
-                <div 
-                  key={item.year} 
-                  className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-8 hidden-element opacity-0 animate-fade-in`}
-                  style={{animationDelay: `${0.8 + index * 0.2}s`, animationFillMode: "forwards"}}
-                >
+              {timelineData.map((item, index) => <div key={item.year} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-8 hidden-element opacity-0 animate-fade-in`} style={{
+              animationDelay: `${0.8 + index * 0.2}s`,
+              animationFillMode: "forwards"
+            }}>
                   <div className="w-full md:w-1/2 text-center md:text-right md:pr-8">
                     <div className={index % 2 === 0 ? 'md:text-right' : 'md:text-left'}>
                       <span className="text-gradient font-display text-3xl font-bold">{item.year}</span>
@@ -86,18 +102,11 @@ const About = () => {
                   <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-r from-nborange to-nbyellow shadow-glow"></div>
                   
                   <div className="w-full md:w-1/2 md:pl-8">
-                    {index % 2 === 0 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img 
-                          src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`} 
-                          alt={`NB Media in ${item.year}`} 
-                          className="w-full h-full object-cover rounded-lg"
-                        />
-                      </div>
-                    ) : null}
+                    {index % 2 === 0 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <img src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`} alt={`NB Media in ${item.year}`} className="w-full h-full object-cover rounded-lg" />
+                      </div> : null}
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </Section>
@@ -105,7 +114,10 @@ const About = () => {
         {/* Founder Story */}
         <Section className="bg-black/30 backdrop-blur-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 hidden-element opacity-0 animate-fade-in" style={{animationDelay: "1.8s", animationFillMode: "forwards"}}>
+            <div className="space-y-6 hidden-element opacity-0 animate-fade-in" style={{
+            animationDelay: "1.8s",
+            animationFillMode: "forwards"
+          }}>
               <h2 className="text-3xl md:text-4xl font-bold font-display">
                 Meet Our <span className="text-gradient">Founder</span>
               </h2>
@@ -115,17 +127,16 @@ const About = () => {
               <p className="text-nbgray">
                 "I started NB Media because I believed content creation could be different – more authentic, more innovative, and more impactful. Today, that vision drives every video, every post, and every team member who joins our journey."
               </p>
-              <p className="italic font-medium text-white">– Noah Bennett, Founder & CEO</p>
+              <p className="italic font-medium text-white">– Nikit Bassi, Founder & CEO</p>
             </div>
             
-            <div className="relative hidden-element opacity-0 animate-fade-in" style={{animationDelay: "2s", animationFillMode: "forwards"}}>
+            <div className="relative hidden-element opacity-0 animate-fade-in" style={{
+            animationDelay: "2s",
+            animationFillMode: "forwards"
+          }}>
               <div className="absolute inset-0 bg-gradient-to-br from-nborange to-nbyellow opacity-20 rounded-2xl transform rotate-3"></div>
               <div className="relative aspect-square rounded-2xl overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a" 
-                  alt="NB Media Founder" 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
+                <img alt="NB Media Founder" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="/lovable-uploads/53eb6273-364d-44fd-9b2c-6e94ca2ab9a5.jpg" />
               </div>
             </div>
           </div>
@@ -133,32 +144,41 @@ const About = () => {
         
         {/* Values Section */}
         <Section>
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-12 text-center hidden-element opacity-0 animate-fade-in" style={{animationDelay: "2.2s", animationFillMode: "forwards"}}>
+          <h2 className="text-3xl md:text-4xl font-bold font-display mb-12 text-center hidden-element opacity-0 animate-fade-in" style={{
+          animationDelay: "2.2s",
+          animationFillMode: "forwards"
+        }}>
             Our <span className="text-gradient">Values</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { title: "Pace", description: "We move fast, iterate quickly, and stay ahead of trends." },
-              { title: "Quality", description: "We never compromise on the standard of our content or team." },
-              { title: "Win-Win-Win", description: "Our audience wins. Our creators win. Our partners win." }
-            ].map((value, index) => (
-              <Card key={value.title} className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden group relative hidden-element opacity-0 animate-fade-in" style={{animationDelay: `${2.4 + index * 0.2}s`, animationFillMode: "forwards"}}>
+            {[{
+            title: "Pace",
+            description: "We move fast, iterate quickly, and stay ahead of trends."
+          }, {
+            title: "Quality",
+            description: "We never compromise on the standard of our content or team."
+          }, {
+            title: "Win-Win-Win",
+            description: "Our audience wins. Our creators win. Our partners win."
+          }].map((value, index) => <Card key={value.title} className="bg-white/5 border-white/10 backdrop-blur-sm overflow-hidden group relative hidden-element opacity-0 animate-fade-in" style={{
+            animationDelay: `${2.4 + index * 0.2}s`,
+            animationFillMode: "forwards"
+          }}>
                 <div className="absolute inset-x-0 h-1 top-0 bg-gradient-to-r from-nborange to-nbyellow transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
                 <CardContent className="pt-8">
                   <h3 className="text-2xl font-bold font-display mb-3">{value.title}</h3>
                   <p className="text-nbgray">{value.description}</p>
                 </CardContent>
-              </Card>
-            ))}
+              </Card>)}
           </div>
           
-          <div className="mt-16 text-center hidden-element opacity-0 animate-fade-in" style={{animationDelay: "3s", animationFillMode: "forwards"}}>
+          <div className="mt-16 text-center hidden-element opacity-0 animate-fade-in" style={{
+          animationDelay: "3s",
+          animationFillMode: "forwards"
+        }}>
             <Link to="/careers">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-300 hover:shadow-lg hover:scale-105"
-              >
+              <Button size="lg" className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 Join Our Team
               </Button>
             </Link>
@@ -168,7 +188,8 @@ const About = () => {
       
       <Footer />
       
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style dangerouslySetInnerHTML={{
+      __html: `
         .hidden-element {
           opacity: 0;
           transform: translateY(30px);
@@ -196,9 +217,8 @@ const About = () => {
         .float-animation {
           animation: float 5s ease-in-out infinite;
         }
-      `}} />
-    </div>
-  );
+      `
+    }} />
+    </div>;
 };
-
 export default About;
