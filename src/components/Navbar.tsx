@@ -69,20 +69,20 @@ const Navbar: React.FC = () => {
               Life at NB
             </Link>
             <Link 
+              to="/services" 
+              className={`transition-colors duration-300 cursor-hover ${
+                isActive('/services') ? 'text-nborange' : 'text-white hover:text-nborange'
+              }`}
+            >
+              Services
+            </Link>
+            <Link 
               to="/careers" 
               className={`transition-colors duration-300 cursor-hover ${
                 isActive('/careers') ? 'text-nborange' : 'text-white hover:text-nborange'
               }`}
             >
               Careers
-            </Link>
-            <Link 
-              to="/blog" 
-              className={`transition-colors duration-300 cursor-hover ${
-                isActive('/blog') ? 'text-nborange' : 'text-white hover:text-nborange'
-              }`}
-            >
-              Blog
             </Link>
             <SocialLinks iconSize={18} />
           </nav>
@@ -146,20 +146,20 @@ const Navbar: React.FC = () => {
             Life at NB
           </Link>
           <Link 
+            to="/services" 
+            className={`text-3xl font-display my-4 cursor-hover ${
+              isActive('/services') ? 'text-gradient' : ''
+            }`}
+          >
+            Services
+          </Link>
+          <Link 
             to="/careers" 
             className={`text-3xl font-display my-4 cursor-hover ${
               isActive('/careers') ? 'text-gradient' : ''
             }`}
           >
             Careers
-          </Link>
-          <Link 
-            to="/blog" 
-            className={`text-3xl font-display my-4 cursor-hover ${
-              isActive('/blog') ? 'text-gradient' : ''
-            }`}
-          >
-            Blog
           </Link>
           <div className="mt-auto mb-8">
             <SocialLinks iconSize={24} className="justify-start" />

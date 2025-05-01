@@ -31,24 +31,29 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <a href="#about" className="text-nbgray hover:text-nborange transition-colors duration-300">
+                <Link to="/about" className="text-nbgray hover:text-nborange transition-colors duration-300">
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#life" className="text-nbgray hover:text-nborange transition-colors duration-300">
+                <Link to="/life-at-nb" className="text-nbgray hover:text-nborange transition-colors duration-300">
                   Life at NB
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="text-nbgray hover:text-nborange transition-colors duration-300">
-                  FAQ
-                </a>
+                <Link to="/services" className="text-nbgray hover:text-nborange transition-colors duration-300">
+                  Services
+                </Link>
               </li>
               <li>
                 <Link to="/careers" className="text-nbgray hover:text-nborange transition-colors duration-300">
                   Careers
                 </Link>
+              </li>
+              <li>
+                <a href="#faq" className="text-nbgray hover:text-nborange transition-colors duration-300">
+                  FAQ
+                </a>
               </li>
             </ul>
           </div>
