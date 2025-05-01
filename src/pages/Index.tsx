@@ -4,9 +4,10 @@ import Footer from '../components/Footer';
 import AnimatedCursor from '../components/AnimatedCursor';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
 import CountUp from '@/components/CountUp';
 import FAQ from '@/components/FAQ';
+
 const Index = () => {
   // Smooth scroll for anchor links
   useEffect(() => {
@@ -292,8 +293,17 @@ const Index = () => {
       {/* FAQs Section */}
       <FAQ />
       
-      {/* Latest Blog Posts */}
+      {/* Join Our Team Button - Moved from Footer */}
+      <div className="py-16 flex justify-center">
+        <a href="https://www.keka.com/" target="_blank" rel="noopener noreferrer">
+          <Button size="lg" className="text-white font-medium px-8 py-6 transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center gap-2 bg-orange-500 hover:bg-orange-400 rounded-md">
+            <BriefcaseBusiness className="w-5 h-5" />
+            Join Our Team
+          </Button>
+        </a>
+      </div>
       
+      {/* Latest Blog Posts */}
       
       <Footer />
       

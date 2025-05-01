@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SocialLinks from './SocialLinks';
 import { Button } from './ui/button';
-import { BriefcaseBusiness } from 'lucide-react';
+
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-nbdark border-t border-white/10 py-12 px-4 md:px-8">
@@ -62,16 +62,6 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-        </div>
-        
-        {/* Join Our Team Button */}
-        <div className="mt-10 flex justify-center">
-          <a href="https://www.keka.com/" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" className="text-white font-medium px-8 py-6 transition-all duration-300 hover:shadow-lg hover:scale-105 flex items-center gap-2 bg-orange-500 hover:bg-orange-400 rounded-md">
-              <BriefcaseBusiness className="w-5 h-5" />
-              Join Our Team
-            </Button>
-          </a>
         </div>
         
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
