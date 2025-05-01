@@ -175,7 +175,7 @@ const Index = () => {
               <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c" alt="Team collaboration" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden translate-y-8">
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="Content planning" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
+              <img alt="Content planning" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/e910660d-46fb-4ba2-a505-e463f7bc0cc7.png" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden -translate-y-8">
               <img alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/5ff7b329-f899-4833-bbf4-ae099793e34e.jpg" />
