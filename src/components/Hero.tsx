@@ -50,7 +50,7 @@ const Hero: React.FC = () => {
       <div className="absolute top-1/4 left-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-nborange opacity-20 blur-[100px]"></div>
       <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-nbyellow opacity-10 blur-[100px]"></div>
       
-      <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-center mb-6 font-display text-balance max-w-4xl">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4 font-display text-balance max-w-3xl">
         <span className="block animate-on-mouse opacity-0 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}>
           Creating Tomorrow's
         </span>
@@ -62,14 +62,14 @@ const Hero: React.FC = () => {
         </span>
       </h1>
       
-      <p className="text-base md:text-lg max-w-2xl text-nbgray text-center mt-4 opacity-0 animate-fade-in" style={{ animationDelay: "1.1s", animationFillMode: "forwards" }}>
+      <p className="text-sm md:text-base max-w-xl text-nbgray text-center mt-3 opacity-0 animate-fade-in" style={{ animationDelay: "1.1s", animationFillMode: "forwards" }}>
         NB Media is the undisputed leader in YouTube content creation with a vibrant, Gen Z-friendly culture.
       </p>
       
-      <div className="mt-12 opacity-0 animate-fade-in" style={{ animationDelay: "1.4s", animationFillMode: "forwards" }}>
+      <div className="mt-8 opacity-0 animate-fade-in" style={{ animationDelay: "1.4s", animationFillMode: "forwards" }}>
         <a 
           href="#about" 
-          className="cursor-hover rounded-full border-2 border-nborange px-8 py-3 text-white font-medium transition-all duration-300 hover:bg-nborange hover:text-white"
+          className="cursor-hover rounded-full border-2 border-nborange px-6 py-2 text-white font-medium transition-all duration-300 hover:bg-nborange hover:text-white"
         >
           Discover Our Story
         </a>
@@ -83,24 +83,24 @@ const Hero: React.FC = () => {
           style={{ animationDelay: "1.7s", animationFillMode: "forwards" }}
         >
           <div className="flex flex-col items-center">
-            <p className="text-nbgray text-sm mb-2">Scroll to explore</p>
+            <p className="text-nbgray text-xs mb-2">Scroll to explore</p>
             
             {/* Futuristic scroll animation container */}
-            <div className="relative flex items-center justify-center w-12 h-24">
+            <div className="relative flex items-center justify-center w-10 h-20">
               {/* Outer ring */}
-              <div className="absolute w-12 h-12 border-2 border-nborange/30 rounded-full animate-pulse"></div>
+              <div className="absolute w-10 h-10 border-2 border-nborange/30 rounded-full animate-pulse"></div>
               
               {/* Middle ring */}
-              <div className="absolute w-9 h-9 border-2 border-nborange/50 rounded-full animate-[pulse_2s_infinite_0.5s]"></div>
+              <div className="absolute w-7 h-7 border-2 border-nborange/50 rounded-full animate-[pulse_2s_infinite_0.5s]"></div>
               
               {/* Inner ring */}
-              <div className="absolute w-6 h-6 border-2 border-nborange rounded-full animate-[pulse_2s_infinite_1s]"></div>
+              <div className="absolute w-4 h-4 border-2 border-nborange rounded-full animate-[pulse_2s_infinite_1s]"></div>
               
               {/* Downward arrow line */}
-              <div className="absolute h-16 w-px bg-gradient-to-b from-transparent via-nborange to-transparent"></div>
+              <div className="absolute h-14 w-px bg-gradient-to-b from-transparent via-nborange to-transparent"></div>
               
               {/* Animated chevron */}
-              <ChevronDown className="absolute bottom-0 text-nborange animate-[float_1.5s_ease-in-out_infinite] w-6 h-6" />
+              <ChevronDown className="absolute bottom-0 text-nborange animate-[float_1.5s_ease-in-out_infinite] w-5 h-5" />
             </div>
           </div>
         </div>
