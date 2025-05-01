@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -7,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Coffee, Gift, Zap, MapPin, Clock, Monitor, Heart } from 'lucide-react';
+
 const Careers = () => {
   const [activeCard, setActiveCard] = useState<number | null>(null);
 
@@ -21,12 +23,18 @@ const Careers = () => {
     }, {
       threshold: 0.1
     });
+    
     const hiddenElements = document.querySelectorAll('.hidden-element');
     hiddenElements.forEach(element => observer.observe(element));
+    
+    // Ensure page loads at the top
+    window.scrollTo(0, 0);
+    
     return () => {
       hiddenElements.forEach(element => observer.unobserve(element));
     };
   }, []);
+  
   const benefits = [{
     icon: Coffee,
     title: "Unlimited Coffee & Snacks",
@@ -60,6 +68,7 @@ const Careers = () => {
     title: "Learning Budget",
     description: "$1000/year to spend on courses, books, or conferences."
   }];
+  
   const faqItems = [{
     question: "What's the interview process like?",
     answer: "Our process is laid-back but thorough. First, a casual video chat to get to know you. Then, a small creative task relevant to the role. Finally, you'll meet the team you'd work with. No trick questions or stress tests – we just want to see how you think and create."
@@ -76,6 +85,7 @@ const Careers = () => {
     question: "What's the dress code?",
     answer: "Express yourself! Unless you're on camera or meeting clients, wear whatever makes you comfortable and creative. Yes, that includes pajamas on WFH days."
   }];
+  
   return <div className="relative min-h-screen bg-nbdark text-white overflow-hidden hide-cursor">
       <AnimatedCursor />
       <Navbar />
@@ -139,7 +149,7 @@ const Careers = () => {
             <p className="text-lg mb-10 text-nbgray">
               Check out our open positions and apply now. We can't wait to see what you'll create with us!
             </p>
-            <a href="https://www.keka.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://ytmoney.keka.com/careers/" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-14 py-8 text-xl rounded-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 Join Now
               </Button>
@@ -183,7 +193,7 @@ const Careers = () => {
             <p className="text-nbgray mb-8">
               Reach out to our team at <a href="mailto:careers@nbmedia.com" className="text-gradient">hello@nbmediaproductions.com</a> and we'll get back to you asap!
             </p>
-            <a href="https://www.keka.com/" target="_blank" rel="noopener noreferrer">
+            <a href="https://ytmoney.keka.com/careers/" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-nborange hover:bg-nborange/90 text-white font-medium px-8 py-4 rounded-md transition-all duration-300 hover:shadow-lg hover:scale-105">
                 View All Open Positions
               </Button>

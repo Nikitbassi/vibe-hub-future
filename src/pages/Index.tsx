@@ -22,7 +22,6 @@ const Index = () => {
           if (element) {
             window.scrollTo({
               top: element.offsetTop - 80,
-              // Adjust for header height
               behavior: 'smooth'
             });
           }
@@ -30,6 +29,10 @@ const Index = () => {
       }
     };
     document.addEventListener('click', handleAnchorClick);
+    
+    // Ensure page loads at the top
+    window.scrollTo(0, 0);
+    
     return () => {
       document.removeEventListener('click', handleAnchorClick);
     };
@@ -93,8 +96,8 @@ const Index = () => {
         <div className="absolute bottom-1/4 right-1/4 w-64 h-64 md:w-96 md:h-96 rounded-full bg-nbyellow opacity-10 blur-[100px]"></div>
         
         <div className="max-w-6xl mx-auto relative z-10">
-          <h1 className="text-5xl md:text-7xl lg:text-9xl font-bold text-center mb-6 font-display text-balance">
-            <div className="overflow-hidden">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-center mb-6 font-display text-balance">
+            <div className="overflow-hidden mb-2">
               <span className="inline-block parallax-element opacity-0 animate-fade-in" style={{
               animationDelay: "0.4s",
               animationFillMode: "forwards"
@@ -102,7 +105,7 @@ const Index = () => {
                 We don't just
               </span>
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden mb-2">
               <span className="inline-block parallax-element text-gradient opacity-0 animate-fade-in" style={{
               animationDelay: "0.8s",
               animationFillMode: "forwards"
@@ -110,7 +113,7 @@ const Index = () => {
                 create content.
               </span>
             </div>
-            <div className="overflow-hidden">
+            <div className="overflow-hidden mb-2">
               <span className="inline-block parallax-element opacity-0 animate-fade-in" style={{
               animationDelay: "1.2s",
               animationFillMode: "forwards"
@@ -128,25 +131,20 @@ const Index = () => {
             </div>
           </h1>
           
-          <p className="text-xl md:text-2xl text-nbgray max-w-2xl mx-auto text-center mt-8 opacity-0 animate-fade-in" style={{
+          <p className="text-lg md:text-xl text-nbgray max-w-2xl mx-auto text-center mt-8 opacity-0 animate-fade-in" style={{
           animationDelay: "2s",
           animationFillMode: "forwards"
         }}>
             NB Media is the undisputed leader in YouTube content creation with a vibrant, Gen Z-friendly culture.
           </p>
           
-          <div className="flex flex-col items-center sm:flex-row gap-4 justify-center mt-12 opacity-0 animate-fade-in" style={{
+          <div className="flex justify-center mt-12 opacity-0 animate-fade-in" style={{
           animationDelay: "2.4s",
           animationFillMode: "forwards"
         }}>
-            <Link to="/careers" className="w-full sm:w-auto">
-              <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-500 hover:shadow-glow hover:scale-105">
+            <Link to="/careers" className="w-auto">
+              <Button size="lg" className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-500 hover:shadow-glow hover:scale-105">
                 Join Our Team
-              </Button>
-            </Link>
-            <Link to="/about" className="w-full sm:w-auto">
-              <Button size="lg" variant="outline" className="w-full sm:w-auto border-white/20 text-white px-8 py-6 hover:bg-white/10 transition-all duration-300">
-                Our Story
               </Button>
             </Link>
           </div>
@@ -289,12 +287,12 @@ const Index = () => {
       
       {/* Join Our Team Button - Moved from Footer */}
       <Section padding="sm" maxWidth="7xl" className="text-center">
-        <a href="https://www.keka.com/" target="_blank" rel="noopener noreferrer">
+        <Link to="/careers">
           <Button size="lg" className="bg-gradient-to-r from-nborange to-nbyellow text-white font-medium px-8 py-6 rounded-md transition-all duration-500 hover:shadow-glow hover:scale-105 flex items-center gap-2">
             <BriefcaseBusiness className="w-5 h-5" />
             Join Our Team
           </Button>
-        </a>
+        </Link>
       </Section>
       
       <Footer />

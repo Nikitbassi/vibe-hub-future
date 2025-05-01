@@ -160,7 +160,7 @@ const LifeAtNB: React.FC = () => {
         
         <div className="text-center mt-12 opacity-0 hidden-element transition-all duration-1000 delay-900" style={{ transform: 'translateY(40px)' }}>
           <a 
-            href="https://www.instagram.com/" 
+            href="https://www.instagram.com/nbmediaa/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="follow-btn inline-flex items-center gap-2 text-gradient font-medium cursor-hover px-6 py-3 rounded-full border border-nborange/50 hover:border-nborange transition-all duration-300"

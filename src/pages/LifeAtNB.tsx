@@ -23,7 +23,10 @@ const LifeAtNBPage = () => {
 
     const hiddenElements = document.querySelectorAll('.hidden-element');
     hiddenElements.forEach(element => observer.observe(element));
-
+    
+    // Ensure page loads at the top
+    window.scrollTo(0, 0);
+    
     return () => {
       hiddenElements.forEach(element => observer.unobserve(element));
     };
@@ -130,7 +133,7 @@ const LifeAtNBPage = () => {
           
           <div className="mt-10 text-center hidden-element opacity-0 animate-fade-in" style={{animationDelay: "1s", animationFillMode: "forwards"}}>
             <a 
-              href="https://www.instagram.com/" 
+              href="https://www.instagram.com/nbmediaa/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-gradient font-medium cursor-hover px-6 py-3 rounded-full border border-nborange/50 hover:border-nborange transition-all duration-300"

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 
 interface SocialLinksProps {
   className?: string;
@@ -16,7 +16,7 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
   return (
     <div className={`flex items-center space-x-4 ${className}`}>
       <a 
-        href="https://www.instagram.com/" 
+        href="https://www.instagram.com/nbmediaa/" 
         target="_blank" 
         rel="noopener noreferrer"
         className="hover:text-nborange transition-colors duration-300"
@@ -25,22 +25,13 @@ const SocialLinks: React.FC<SocialLinksProps> = ({
         <Instagram size={iconSize} color={iconColor} />
       </a>
       <a 
-        href="https://www.linkedin.com/" 
+        href="https://in.linkedin.com/company/nb-productions-pvt-lmt" 
         target="_blank" 
         rel="noopener noreferrer"
         className="hover:text-nborange transition-colors duration-300"
         aria-label="LinkedIn"
       >
         <Linkedin size={iconSize} color={iconColor} />
-      </a>
-      <a 
-        href="https://www.youtube.com/" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="hover:text-nborange transition-colors duration-300"
-        aria-label="YouTube"
-      >
-        <Youtube size={iconSize} color={iconColor} />
       </a>
     </div>
   );
