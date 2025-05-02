@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import { Instagram, Heart } from 'lucide-react';
 import Section from './Section';
-import InstagramReels from './InstagramReels';
 
 const InstagramFeedSection: React.FC = () => {
   const [activePost, setActivePost] = useState<number | null>(null);
@@ -47,9 +46,6 @@ const InstagramFeedSection: React.FC = () => {
         <Instagram className="mr-3 text-white" />
         <h2 className="text-2xl md:text-3xl font-bold font-display">Our Instagram Feed</h2>
       </div>
-      
-      {/* Instagram Reels Section */}
-      <InstagramReels className="mb-16" />
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden-element opacity-0 animate-fade-in" style={{animationDelay: "0.8s", animationFillMode: "forwards"}}>
         {instagramPosts.map((post, index) => (
