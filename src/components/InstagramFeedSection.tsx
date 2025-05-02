@@ -1,10 +1,13 @@
 
 import React, { useState } from 'react';
-import { Instagram, Heart, Play } from 'lucide-react';
+import { Instagram, Heart, Play, Volume, VolumeOff } from 'lucide-react';
 import Section from './Section';
+import { Card } from './ui/card';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 
 const InstagramFeedSection: React.FC = () => {
   const [activePost, setActivePost] = useState<number | null>(null);
+  const [isMuted, setIsMuted] = useState(true);
 
   // Instagram post mockups - now including videos
   const instagramPosts = [
@@ -54,6 +57,23 @@ const InstagramFeedSection: React.FC = () => {
       <div className="flex items-center justify-center mb-8 hidden-element opacity-0 animate-fade-in" style={{animationDelay: "0.6s", animationFillMode: "forwards"}}>
         <Instagram className="mr-3 text-white" />
         <h2 className="text-2xl md:text-3xl font-bold font-display">Our Instagram Feed</h2>
+      </div>
+      
+      {/* YouTube Short Featured Content */}
+      <div className="mb-12 hidden-element opacity-0 animate-fade-in" style={{animationDelay: "0.7s", animationFillMode: "forwards"}}>
+        <div className="flex flex-col items-center">
+          <h3 className="text-xl md:text-2xl font-bold mb-4 font-display text-gradient">Featured Short</h3>
+          <div className="relative w-full max-w-md mx-auto aspect-[9/16] rounded-xl overflow-hidden shadow-2xl">
+            <iframe 
+              src="https://www.youtube.com/embed/cCcZryjDTjg" 
+              title="NB Media YouTube Short" 
+              className="absolute top-0 left-0 w-full h-full"
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
       </div>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 hidden-element opacity-0 animate-fade-in" style={{animationDelay: "0.8s", animationFillMode: "forwards"}}>
