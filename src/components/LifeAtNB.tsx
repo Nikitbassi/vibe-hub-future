@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
-import { Instagram } from 'lucide-react';
+import { Instagram, Play } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -66,31 +66,41 @@ const LifeAtNB: React.FC = () => {
     },
   ];
 
-  // Instagram Reels - Featured content from Instagram
+  // Updated Instagram Reels with the new links provided
   const instagramReels = [
     {
-      id: 'CyPXOBkA0kN',
-      caption: 'Content planning with the team 🎬',
+      id: 'DH-_3RqIAzj',
+      caption: 'Coco Reel',
       type: 'reel',
     },
     {
-      id: 'CvIT65CIStP',
-      caption: 'Behind the scenes magic ✨',
+      id: 'DI_WpxWSPZL',
+      caption: 'Maggie Reel',
       type: 'reel',
     },
     {
-      id: 'CuRY74-vEEu',
-      caption: 'Our latest project launch 🚀',
+      id: 'DJEe8ZySpOm',
+      caption: 'Dance Reel',
       type: 'reel',
     },
     {
-      id: 'CsSYq36P0Uf',
-      caption: 'Office vibes check ☀️',
-      type: 'post',
+      id: 'DG0lwYYyJS5',
+      caption: 'Kerala Retreat Reel',
+      type: 'reel',
+    },
+    {
+      id: 'DIyi2AiSp9Y',
+      caption: '1 Sec of Office Moments',
+      type: 'reel',
+    },
+    {
+      id: 'DJB_QN5yNBq',
+      caption: 'I like you but I don\'t like it when...',
+      type: 'reel',
     },
   ];
 
-  // CSS for enhanced animations
+  // CSS for enhanced animations and Instagram reel styling
   const animationStyles = `
     .hidden-element {
       opacity: 0;
@@ -156,11 +166,13 @@ const LifeAtNB: React.FC = () => {
       overflow: hidden;
       border-radius: 12px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #000;
     }
 
     .reel-container:hover {
-      transform: scale(1.02);
+      transform: scale(1.03);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
     }
 
     .reel-overlay {
@@ -171,6 +183,12 @@ const LifeAtNB: React.FC = () => {
       padding: 1rem;
       background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
       color: white;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .reel-container:hover .reel-overlay {
+      opacity: 1;
     }
 
     .instagram-embed {
@@ -180,6 +198,42 @@ const LifeAtNB: React.FC = () => {
       overflow: hidden;
       background: #000;
       border-radius: 12px;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      opacity: 0.8;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 5;
+    }
+
+    .reel-container:hover .play-button {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 640px) {
+      .reel-container {
+        aspect-ratio: 9/16;
+      }
+      
+      .play-button {
+        width: 40px;
+        height: 40px;
+      }
     }
   `;
 
@@ -198,7 +252,7 @@ const LifeAtNB: React.FC = () => {
         <div className="mb-16 opacity-0 hidden-element transition-all duration-1000 delay-400" style={{ transform: 'translateY(40px)' }}>
           <div className="flex items-center justify-center mb-8">
             <Instagram className="mr-2 text-white" />
-            <h3 className="text-2xl font-bold font-display">Our Latest Reels</h3>
+            <h3 className="text-2xl font-bold font-display">Our Instagram Reels</h3>
           </div>
           
           <Carousel
@@ -211,10 +265,10 @@ const LifeAtNB: React.FC = () => {
             <CarouselContent className="py-4">
               {instagramReels.map((reel) => (
                 <CarouselItem key={reel.id} className="sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4">
-                  <div className="reel-container bg-nbdark/30 border border-white/10">
+                  <div className="reel-container">
                     <iframe
                       className="instagram-embed"
-                      src={`https://www.instagram.com/p/${reel.id}/embed/captioned/`}
+                      src={`https://www.instagram.com/reel/${reel.id}/embed/`}
                       title={`Instagram ${reel.type}: ${reel.caption}`}
                       loading="lazy"
                       allowTransparency={true}
@@ -225,6 +279,9 @@ const LifeAtNB: React.FC = () => {
                       <div className="mt-2 flex items-center text-xs text-white/70">
                         <span>@nbmediaa</span>
                       </div>
+                    </div>
+                    <div className="play-button">
+                      <Play className="h-6 w-6" />
                     </div>
                   </div>
                 </CarouselItem>
