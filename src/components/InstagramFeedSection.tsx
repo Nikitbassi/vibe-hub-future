@@ -1,13 +1,17 @@
 
-import React, { useState } from 'react';
-import { Instagram, Heart, Play, Volume, VolumeOff } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Instagram, Heart, Play, Volume, VolumeOff, Pause } from 'lucide-react';
 import Section from './Section';
 import { Card } from './ui/card';
+import { AspectRatio } from './ui/aspect-ratio';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from './ui/hover-card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 
 const InstagramFeedSection: React.FC = () => {
   const [activePost, setActivePost] = useState<number | null>(null);
   const [isMuted, setIsMuted] = useState(true);
+  const [playingVideo, setPlayingVideo] = useState<number | null>(null);
+  const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
 
   // Instagram post mockups - now including videos
   const instagramPosts = [
@@ -52,6 +56,38 @@ const InstagramFeedSection: React.FC = () => {
     },
   ];
 
+  const toggleVideoPlayback = (index: number, e: React.MouseEvent) => {
+    e.stopPropagation();
+    const video = videoRefs.current[index];
+    
+    if (!video) return;
+    
+    if (playingVideo === index) {
+      video.pause();
+      setPlayingVideo(null);
+    } else {
+      // Pause any currently playing video
+      if (playingVideo !== null && videoRefs.current[playingVideo]) {
+        videoRefs.current[playingVideo]?.pause();
+      }
+      
+      video.play();
+      setPlayingVideo(index);
+    }
+  };
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsMuted(prev => !prev);
+
+    // Update all video elements
+    Object.values(videoRefs.current).forEach(video => {
+      if (video) {
+        video.muted = !isMuted;
+      }
+    });
+  };
+
   return (
     <Section>
       <div className="flex items-center justify-center mb-8 hidden-element opacity-0 animate-fade-in" style={{animationDelay: "0.6s", animationFillMode: "forwards"}}>
@@ -94,31 +130,59 @@ const InstagramFeedSection: React.FC = () => {
               />
             ) : (
               <div className="w-full aspect-square relative">
-                <div className="absolute inset-0 flex items-center justify-center z-20 group-hover:opacity-0 transition-opacity duration-300">
+                <div className={`absolute inset-0 flex items-center justify-center z-20 ${playingVideo === index ? 'opacity-0' : 'group-hover:opacity-0'} transition-opacity duration-300`}>
                   <div className="bg-black/30 rounded-full p-4">
                     <Play className="w-8 h-8 text-white" />
                   </div>
                 </div>
+                
+                {/* Video Controls */}
+                <div className="absolute bottom-3 right-3 flex items-center gap-2 z-30 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <button 
+                    onClick={(e) => toggleVideoPlayback(index, e)}
+                    className="p-2 bg-black/50 backdrop-blur-md rounded-full hover:bg-black/70 transition-colors"
+                  >
+                    {playingVideo === index ? 
+                      <Pause className="w-4 h-4 text-white" /> : 
+                      <Play className="w-4 h-4 text-white" />
+                    }
+                  </button>
+                  
+                  <button 
+                    onClick={toggleMute}
+                    className="p-2 bg-black/50 backdrop-blur-md rounded-full hover:bg-black/70 transition-colors"
+                  >
+                    {isMuted ? 
+                      <VolumeOff className="w-4 h-4 text-white" /> : 
+                      <Volume className="w-4 h-4 text-white" />
+                    }
+                  </button>
+                </div>
+                
                 <video 
                   className="w-full h-full object-cover"
                   src={post.videoUrl} 
                   poster={post.thumbnailUrl}
-                  muted
+                  muted={isMuted}
                   loop
                   playsInline
-                  onClick={(e) => {
-                    const video = e.currentTarget;
-                    if (video.paused) {
+                  ref={el => videoRefs.current[index] = el}
+                  onClick={(e) => toggleVideoPlayback(index, e)}
+                  onMouseEnter={(e) => {
+                    // Only auto-play if no other video is currently playing
+                    if (playingVideo === null) {
+                      const video = e.currentTarget;
                       video.play();
-                    } else {
-                      video.pause();
+                      setPlayingVideo(index);
                     }
                   }}
-                  onMouseEnter={(e) => e.currentTarget.play()}
                   onMouseLeave={(e) => {
-                    const video = e.currentTarget;
-                    video.pause();
-                    video.currentTime = 0;
+                    // Only pause if this video is playing and user isn't actively controlling it
+                    if (playingVideo === index && !e.currentTarget.paused) {
+                      const video = e.currentTarget;
+                      video.pause();
+                      setPlayingVideo(null);
+                    }
                   }}
                 ></video>
               </div>
