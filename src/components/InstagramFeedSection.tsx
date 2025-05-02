@@ -1,5 +1,5 @@
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Instagram, Heart, Play, Volume, VolumeOff, Pause } from 'lucide-react';
 import Section from './Section';
 import { Card } from './ui/card';
@@ -12,13 +12,15 @@ const InstagramFeedSection: React.FC = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [playingVideo, setPlayingVideo] = useState<number | null>(null);
   const videoRefs = useRef<{ [key: number]: HTMLVideoElement | null }>({});
+  const [videoErrors, setVideoErrors] = useState<{[key: number]: boolean}>({});
 
-  // Instagram post mockups - now including videos
+  // Instagram post mockups - videos with alternative sources
   const instagramPosts = [
     {
       id: 1,
       type: 'video',
       videoUrl: '/videos/nbmedia_video1.mp4',
+      fallbackUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', // Fallback to a sample video if local one fails
       thumbnailUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
       caption: 'Team brainstorming session! #creativity #nbmedia',
     },
@@ -32,6 +34,7 @@ const InstagramFeedSection: React.FC = () => {
       id: 3,
       type: 'video',
       videoUrl: '/videos/nbmedia_video2.mp4',
+      fallbackUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4', // Fallback to a sample video if local one fails
       thumbnailUrl: 'https://images.unsplash.com/photo-1525130413817-d45c1d127c42',
       caption: 'Friday celebrations are a must! #weekendvibes',
     },
@@ -45,6 +48,7 @@ const InstagramFeedSection: React.FC = () => {
       id: 5,
       type: 'video',
       videoUrl: '/videos/nbmedia_video3.mp4',
+      fallbackUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', // Fallback to a sample video if local one fails
       thumbnailUrl: 'https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f',
       caption: 'When you find the perfect lighting ✨ #behindthescenes',
     },
@@ -55,6 +59,20 @@ const InstagramFeedSection: React.FC = () => {
       caption: 'Our new office space is 🔥 #nbmedia',
     },
   ];
+
+  // Handle video error and switch to fallback if available
+  const handleVideoError = (index: number) => {
+    console.log(`Error loading video at index ${index}`);
+    setVideoErrors(prev => ({...prev, [index]: true}));
+    
+    // Try to load the fallback URL if available
+    const post = instagramPosts.find((_, i) => i === index);
+    if (post?.type === 'video' && 'fallbackUrl' in post && videoRefs.current[index]) {
+      console.log(`Trying fallback URL for video ${index}`);
+      videoRefs.current[index]!.src = post.fallbackUrl;
+      videoRefs.current[index]!.load();
+    }
+  };
 
   const toggleVideoPlayback = (index: number, e: React.MouseEvent) => {
     e.stopPropagation();
@@ -71,7 +89,11 @@ const InstagramFeedSection: React.FC = () => {
         videoRefs.current[playingVideo]?.pause();
       }
       
-      video.play();
+      // Try to play and handle any errors
+      video.play().catch(err => {
+        console.error('Error playing video:', err);
+        handleVideoError(index);
+      });
       setPlayingVideo(index);
     }
   };
@@ -87,6 +109,16 @@ const InstagramFeedSection: React.FC = () => {
       }
     });
   };
+
+  // Debug helper - log when component mounts
+  useEffect(() => {
+    console.log('InstagramFeedSection mounted');
+    console.log('Video refs initialized:', videoRefs.current);
+    
+    return () => {
+      console.log('InstagramFeedSection unmounted');
+    };
+  }, []);
 
   return (
     <Section>
@@ -161,18 +193,22 @@ const InstagramFeedSection: React.FC = () => {
                 
                 <video 
                   className="w-full h-full object-cover"
-                  src={post.videoUrl} 
+                  src={videoErrors[index] && 'fallbackUrl' in post ? (post as any).fallbackUrl : post.videoUrl}
                   poster={post.thumbnailUrl}
                   muted={isMuted}
                   loop
                   playsInline
                   ref={el => videoRefs.current[index] = el}
                   onClick={(e) => toggleVideoPlayback(index, e)}
+                  onError={() => handleVideoError(index)}
                   onMouseEnter={(e) => {
                     // Only auto-play if no other video is currently playing
                     if (playingVideo === null) {
                       const video = e.currentTarget;
-                      video.play();
+                      video.play().catch(err => {
+                        console.error('Error auto-playing on hover:', err);
+                        handleVideoError(index);
+                      });
                       setPlayingVideo(index);
                     }
                   }}
