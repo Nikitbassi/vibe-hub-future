@@ -1,40 +1,49 @@
 
 import React, { useState } from 'react';
-import { Instagram, Heart } from 'lucide-react';
+import { Instagram, Heart, Play } from 'lucide-react';
 import Section from './Section';
 
 const InstagramFeedSection: React.FC = () => {
   const [activePost, setActivePost] = useState<number | null>(null);
 
-  // Instagram post mockups
+  // Instagram post mockups - now including videos
   const instagramPosts = [
     {
       id: 1,
-      imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
+      type: 'video',
+      videoUrl: '/videos/nbmedia_video1.mp4',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c',
       caption: 'Team brainstorming session! #creativity #nbmedia',
     },
     {
       id: 2,
+      type: 'image',
       imageUrl: 'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2',
       caption: 'When the coffee kicks in ☕ #mondaymotivation',
     },
     {
       id: 3,
-      imageUrl: 'https://images.unsplash.com/photo-1525130413817-d45c1d127c42',
+      type: 'video',
+      videoUrl: '/videos/nbmedia_video2.mp4',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1525130413817-d45c1d127c42',
       caption: 'Friday celebrations are a must! #weekendvibes',
     },
     {
       id: 4,
+      type: 'image',
       imageUrl: 'https://images.unsplash.com/photo-1552664730-d307ca884978',
       caption: 'Planning our next viral hit 📈 #contentcreation',
     },
     {
       id: 5,
-      imageUrl: 'https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f',
+      type: 'video',
+      videoUrl: '/videos/nbmedia_video3.mp4',
+      thumbnailUrl: 'https://images.unsplash.com/photo-1601933973783-43cf8a7d4c5f',
       caption: 'When you find the perfect lighting ✨ #behindthescenes',
     },
     {
       id: 6,
+      type: 'image',
       imageUrl: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf',
       caption: 'Our new office space is 🔥 #nbmedia',
     },
@@ -57,11 +66,43 @@ const InstagramFeedSection: React.FC = () => {
           >
             <div className={`absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent opacity-${activePost === index ? '90' : '50'} transition-opacity duration-300 z-10`}></div>
             
-            <img 
-              src={post.imageUrl} 
-              alt={`Instagram post ${post.id}`}
-              className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110"
-            />
+            {post.type === 'image' ? (
+              <img 
+                src={post.imageUrl} 
+                alt={`Instagram post ${post.id}`}
+                className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+            ) : (
+              <div className="w-full aspect-square relative">
+                <div className="absolute inset-0 flex items-center justify-center z-20 group-hover:opacity-0 transition-opacity duration-300">
+                  <div className="bg-black/30 rounded-full p-4">
+                    <Play className="w-8 h-8 text-white" />
+                  </div>
+                </div>
+                <video 
+                  className="w-full h-full object-cover"
+                  src={post.videoUrl} 
+                  poster={post.thumbnailUrl}
+                  muted
+                  loop
+                  playsInline
+                  onClick={(e) => {
+                    const video = e.currentTarget;
+                    if (video.paused) {
+                      video.play();
+                    } else {
+                      video.pause();
+                    }
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.play()}
+                  onMouseLeave={(e) => {
+                    const video = e.currentTarget;
+                    video.pause();
+                    video.currentTime = 0;
+                  }}
+                ></video>
+              </div>
+            )}
             
             <div className="absolute bottom-0 left-0 right-0 p-4 z-20 transform transition-transform duration-500 translate-y-2 group-hover:translate-y-0">
               <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
