@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -217,7 +216,7 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-nborange to-nbyellow opacity-20 rounded-2xl transform rotate-3 will-change-transform"></div>
               <div className="relative aspect-square rounded-2xl overflow-hidden">
                 <OptimizedImage 
-                  src="/lovable-uploads/9e22850f-ecfe-4d86-a563-9fb73cdcd6da.png"
+                  src="/lovable-uploads/7ce9d1ab-5fc8-4ff4-b24f-69f0fc33d522.jpg"
                   alt="NB Media Founder" 
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                   priority={true}
