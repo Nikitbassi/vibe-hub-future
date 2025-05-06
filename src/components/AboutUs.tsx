@@ -157,7 +157,7 @@ const AboutUs: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-br from-nborange to-nbyellow opacity-60 rounded-2xl transform rotate-3 float-animation"></div>
           <div className="absolute inset-0 bg-nbdark rounded-2xl overflow-hidden image-wrapper">
             <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+              src="/lovable-uploads/4f35312d-0b47-403e-8523-76970772b90f.png" 
               alt="Founder working on content" 
               className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-110"
             />
