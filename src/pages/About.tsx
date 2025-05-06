@@ -117,11 +117,11 @@ const About = () => {
                   <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-r from-nborange to-nbyellow shadow-glow will-change-transform"></div>
                   
                   <div className="w-full md:w-1/2 md:pl-8">
-                    {/* Replace images with the new uploaded ones */}
+                    {/* Show specific images for each year with optimized image component */}
                     {index === 0 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <OptimizedImage 
-                          src="/lovable-uploads/b17d2571-7288-4ff5-a739-ae05030805e4.png" 
+                          src="/lovable-uploads/ab954229-a185-4be5-95b1-8d9a1456d46c.png" 
                           alt="NB Media in 2020 - The Beginning" 
                           className="w-full h-full object-cover rounded-lg"
                           priority={index <= 1} // Only prioritize first two images
@@ -130,7 +130,7 @@ const About = () => {
                     ) : index === 1 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <OptimizedImage 
-                          src="/lovable-uploads/456b8acb-d65a-44ed-8756-a16eb7254421.png" 
+                          src="/lovable-uploads/2339c01b-c8c6-445f-88aa-4b2bfc2a5148.png" 
                           alt="YouTube Play Buttons - First Million" 
                           className="w-full h-full object-cover rounded-lg"
                           priority={index <= 1}
@@ -139,7 +139,7 @@ const About = () => {
                     ) : index === 2 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <OptimizedImage 
-                          src="/lovable-uploads/4f35312d-0b47-403e-8523-76970772b90f.png" 
+                          src="/lovable-uploads/2d63caf7-5c54-4e4f-99bd-d626e0523cb8.png" 
                           alt="NB Media Office - First Office" 
                           className="w-full h-full object-cover rounded-lg"
                         />
@@ -163,7 +163,7 @@ const About = () => {
                     ) : index === 5 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <OptimizedImage 
-                          src="/lovable-uploads/113592ab-a1dd-4ddf-ae93-63a5718c0dc8.png" 
+                          src="/lovable-uploads/18bb5ad0-b108-4ced-a976-89362974ea1a.png" 
                           alt="NB Media Today - Team Members" 
                           className="w-full h-full object-cover rounded-lg"
                         />
