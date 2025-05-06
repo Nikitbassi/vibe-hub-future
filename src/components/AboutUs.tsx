@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
+import { Calendar, Building, Users, Globe, Home, Trophy } from 'lucide-react';
 
 const AboutUs: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -41,6 +42,46 @@ const AboutUs: React.FC = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // New timeline data matching the About page
+  const timelineData = [
+    {
+      year: '2020',
+      title: 'The Beginning',
+      description: 'Started in a small apartment with one camera and a dream.',
+      icon: <Home className="w-5 h-5 text-white" />
+    }, 
+    {
+      year: '2021',
+      title: 'First Million',
+      description: 'Reached 1 million subscribers and grew to a team of 5.',
+      icon: <Trophy className="w-5 h-5 text-white" />
+    }, 
+    {
+      year: '2022',
+      title: 'First Office',
+      description: 'Opened our first real office and doubled our team.',
+      icon: <Building className="w-5 h-5 text-white" />
+    }, 
+    {
+      year: '2023',
+      title: 'Global Expansion',
+      description: 'Created content in multiple languages and hit 10 million subscribers.',
+      icon: <Globe className="w-5 h-5 text-white" />
+    }, 
+    {
+      year: '2024',
+      title: 'Chandigarh Headquarters',
+      description: 'Built our HQ in Chandigarh with open workspaces and a creative environment.',
+      icon: <Building className="w-5 h-5 text-white" />
+    }, 
+    {
+      year: '2025',
+      title: 'Today',
+      description: 'Now 90 team members strong, leading India\'s YouTube content creation.',
+      icon: <Users className="w-5 h-5 text-white" />
+    }
+  ];
 
   const features = [
     { title: "Innovative Vision", description: "We constantly push boundaries and explore new creative territories to stay ahead of digital trends." },
@@ -128,6 +169,32 @@ const AboutUs: React.FC = () => {
     .image-wrapper:hover:after {
       opacity: 1;
     }
+    
+    .timeline-node {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: linear-gradient(to right, var(--nborange), var(--nbyellow));
+      box-shadow: 0 0 15px rgba(255, 122, 0, 0.6);
+    }
+    
+    .timeline-card {
+      border-radius: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    
+    .timeline-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      border-color: rgba(255, 122, 0, 0.3);
+    }
   `;
 
   return (
@@ -161,6 +228,48 @@ const AboutUs: React.FC = () => {
               alt="Founder working on content" 
               className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-110"
             />
+          </div>
+        </div>
+      </div>
+      
+      {/* Timeline Section */}
+      <div className="mt-24 opacity-0 hidden-element transition-all duration-1000 delay-300" style={{ transform: 'translateY(40px)' }}>
+        <h3 className="text-2xl md:text-3xl font-bold font-display mb-8 text-center">Our <span className="text-gradient">Journey</span></h3>
+        
+        <div className="relative mt-12">
+          {/* Timeline line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-nborange to-nbyellow opacity-30"></div>
+          
+          {/* Timeline events */}
+          <div className="space-y-16 relative">
+            {timelineData.map((item, index) => (
+              <div 
+                key={item.year}
+                className={`flex flex-col md:grid md:grid-cols-7 gap-4 items-center relative opacity-0 hidden-element`}
+                style={{ 
+                  animationDelay: `${0.3 + index * 0.2}s`,
+                  animationFillMode: "forwards",
+                  transform: 'translateY(20px)' 
+                }}
+              >
+                {/* Timeline node */}
+                <div className="timeline-node absolute left-8 md:left-1/2 transform -translate-x-1/2 z-10">
+                  {item.icon}
+                </div>
+                
+                {/* Left side (even indexes) */}
+                <div className={`${index % 2 === 0 ? 'md:col-span-3 md:text-right md:pr-8' : 'md:col-start-5 md:col-span-3 md:pl-8'} pl-16 md:pl-0 relative`}>
+                  <div className="timeline-card">
+                    <span className="text-gradient font-display text-2xl font-bold">{item.year}</span>
+                    <h4 className="text-lg font-bold mt-2 mb-2">{item.title}</h4>
+                    <p className="text-nbgray">{item.description}</p>
+                  </div>
+                </div>
+                
+                {/* Spacer column */}
+                <div className="hidden md:block md:col-span-1"></div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
