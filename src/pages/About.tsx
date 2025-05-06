@@ -25,6 +25,7 @@ const About = () => {
       hiddenElements.forEach(element => observer.unobserve(element));
     };
   }, []);
+  
   const timelineData = [{
     year: '2020',
     title: 'The Beginning',
@@ -120,6 +121,10 @@ const About = () => {
                     ) : index === 2 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/2d63caf7-5c54-4e4f-99bd-d626e0523cb8.png" alt="NB Media Office - First Office" className="w-full h-full object-cover rounded-lg" />
+                      </div>
+                    ) : index === 3 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <img src="/lovable-uploads/ff567d46-2f67-4473-bc30-665c08f5db46.png" alt="NB Media Global Team - Global Expansion" className="w-full h-full object-cover rounded-lg" />
                       </div>
                     ) : index % 2 === 0 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
