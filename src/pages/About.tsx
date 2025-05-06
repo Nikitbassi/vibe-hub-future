@@ -117,6 +117,10 @@ const About = () => {
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/23cc3fe5-ec4d-44f0-ba45-97d7f848db70.png" alt="YouTube Silver Play Button - First Million" className="w-full h-full object-cover rounded-lg" />
                       </div>
+                    ) : index === 2 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <img src="/lovable-uploads/2d63caf7-5c54-4e4f-99bd-d626e0523cb8.png" alt="NB Media Office - First Office" className="w-full h-full object-cover rounded-lg" />
+                      </div>
                     ) : index % 2 === 0 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`} alt={`NB Media in ${item.year}`} className="w-full h-full object-cover rounded-lg" />
