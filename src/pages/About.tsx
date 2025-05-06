@@ -160,7 +160,7 @@ const About = () => {
           }}>
               <div className="absolute inset-0 bg-gradient-to-br from-nborange to-nbyellow opacity-20 rounded-2xl transform rotate-3"></div>
               <div className="relative aspect-square rounded-2xl overflow-hidden">
-                <img alt="NB Media Founder" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="/lovable-uploads/53eb6273-364d-44fd-9b2c-6e94ca2ab9a5.jpg" />
+                <img alt="NB Media Founder" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="/lovable-uploads/7ce9d1ab-5fc8-4ff4-b24f-69f0fc33d522.jpg" />
               </div>
             </div>
           </div>
