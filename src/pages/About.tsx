@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -7,7 +6,6 @@ import Section from '../components/Section';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
-
 const About = () => {
   // For intersection observer animations
   useEffect(() => {
@@ -26,7 +24,6 @@ const About = () => {
       hiddenElements.forEach(element => observer.unobserve(element));
     };
   }, []);
-  
   const timelineData = [{
     year: '2020',
     title: 'The Beginning',
@@ -52,7 +49,6 @@ const About = () => {
     title: 'Today',
     description: 'Now 90 team members strong, leading India\'s YouTube content creation.'
   }];
-
   return <div className="relative min-h-screen bg-nbdark text-white overflow-hidden hide-cursor">
       <AnimatedCursor />
       <Navbar />
@@ -111,45 +107,31 @@ const About = () => {
                   
                   <div className="w-full md:w-1/2 md:pl-8">
                     {/* Show specific images for each year */}
-                    {index === 0 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                    {index === 0 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/ab954229-a185-4be5-95b1-8d9a1456d46c.png" alt="NB Media in 2020 - The Beginning" className="w-full h-full object-cover rounded-lg" />
-                      </div>
-                    ) : index === 1 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                      </div> : index === 1 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/2339c01b-c8c6-445f-88aa-4b2bfc2a5148.png" alt="YouTube Play Buttons - First Million" className="w-full h-full object-cover rounded-lg" />
-                      </div>
-                    ) : index === 2 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                      </div> : index === 2 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/2d63caf7-5c54-4e4f-99bd-d626e0523cb8.png" alt="NB Media Office - First Office" className="w-full h-full object-cover rounded-lg" />
-                      </div>
-                    ) : index === 3 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                      </div> : index === 3 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/ff567d46-2f67-4473-bc30-665c08f5db46.png" alt="NB Media Global Team - Global Expansion" className="w-full h-full object-cover rounded-lg" />
-                      </div>
-                    ) : index === 4 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                      </div> : index === 4 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/acee3d0b-7b77-4b17-8a4e-de5415c3f2a0.png" alt="NB Media Chandigarh Headquarters" className="w-full h-full object-cover rounded-lg" />
-                      </div>
-                    ) : index === 5 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                      </div> : index === 5 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/18bb5ad0-b108-4ced-a976-89362974ea1a.png" alt="NB Media Today - Team Members" className="w-full h-full object-cover rounded-lg" />
-                      </div>
-                    ) : index % 2 === 0 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                      </div> : index % 2 === 0 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`} alt={`NB Media in ${item.year}`} className="w-full h-full object-cover rounded-lg" />
-                      </div>
-                    ) : null}
+                      </div> : null}
                   </div>
                 </div>)}
             </div>
           </div>
           
           <div className="mt-12 text-center hidden-element opacity-0 animate-fade-in" style={{
-            animationDelay: "2.2s",
-            animationFillMode: "forwards"
-          }}>
-            <p className="text-lg text-nbgray mb-6">Join us as we continue to grow.</p>
+          animationDelay: "2.2s",
+          animationFillMode: "forwards"
+        }}>
+            
           </div>
         </Section>
         
@@ -263,5 +245,4 @@ const About = () => {
     }} />
     </div>;
 };
-
 export default About;
