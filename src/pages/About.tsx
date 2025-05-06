@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -109,10 +108,14 @@ const About = () => {
                   <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-r from-nborange to-nbyellow shadow-glow"></div>
                   
                   <div className="w-full md:w-1/2 md:pl-8">
-                    {/* Only show image for the first entry (2020) */}
+                    {/* Show specific images for each year */}
                     {index === 0 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/ab954229-a185-4be5-95b1-8d9a1456d46c.png" alt="NB Media in 2020 - The Beginning" className="w-full h-full object-cover rounded-lg" />
+                      </div>
+                    ) : index === 1 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <img src="/lovable-uploads/23cc3fe5-ec4d-44f0-ba45-97d7f848db70.png" alt="YouTube Silver Play Button - First Million" className="w-full h-full object-cover rounded-lg" />
                       </div>
                     ) : index % 2 === 0 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
