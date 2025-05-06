@@ -8,7 +8,7 @@ import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
 import CountUp from '@/components/CountUp';
 import FAQ from '@/components/FAQ';
 import Section from '@/components/Section';
-import OptimizedImage from '@/components/OptimizedImage';
+import MemeTeam from '@/components/MemeTeam';
 
 const Index = () => {
   // Smooth scroll for anchor links
@@ -215,58 +215,8 @@ const Index = () => {
         </div>
       </Section>
       
-      {/* Life at NB Teaser */}
-      <Section id="life-teaser" className="bg-black/30 relative overflow-hidden" padding="lg">
-        <div className="text-center mb-16 hidden-element">
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-            Life at <span className="text-gradient">NB Media</span>
-          </h2>
-          <p className="text-nbgray text-lg max-w-2xl mx-auto">
-            From brainstorming sessions to launch celebrations, get a glimpse of what it's like to be part of our creative family.
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 hidden-element">
-          <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
-            <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
-            <OptimizedImage 
-              src="/lovable-uploads/1d043cdc-673c-4c86-980f-888c5cd030c3.png" 
-              alt="NB Media team culture" 
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
-            />
-            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-              <h3 className="text-xl font-bold mb-2">Team Culture</h3>
-              <p className="text-nbgray text-sm">Where creativity meets collaboration in a dynamic environment.</p>
-            </div>
-          </div>
-          
-          <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
-            <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
-            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2" alt="NB Media office" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-              <h3 className="text-xl font-bold mb-2">Creative Spaces</h3>
-              <p className="text-nbgray text-sm">Designed to inspire innovation and out-of-the-box thinking.</p>
-            </div>
-          </div>
-          
-          <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
-            <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
-            <img src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0" alt="NB Media studio" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
-            <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-              <h3 className="text-xl font-bold mb-2">Studio Magic</h3>
-              <p className="text-nbgray text-sm">State-of-the-art equipment for top-tier content production.</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="mt-12 text-center hidden-element">
-          <Link to="/life-at-nb">
-            <Button size="lg" className="border border-nborange text-white bg-transparent hover:bg-nborange/20 transition-all duration-300 px-8 py-4">
-              Explore Life at NB
-            </Button>
-          </Link>
-        </div>
-      </Section>
+      {/* Life at NB Teaser - REPLACED WITH MEME TEAM */}
+      <MemeTeam />
       
       {/* CTA Careers */}
       <Section id="careers-teaser" className="relative overflow-hidden" padding="lg">
