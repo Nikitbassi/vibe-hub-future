@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -116,7 +117,7 @@ const About = () => {
                       </div>
                     ) : index === 1 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img src="/lovable-uploads/23cc3fe5-ec4d-44f0-ba45-97d7f848db70.png" alt="YouTube Silver Play Button - First Million" className="w-full h-full object-cover rounded-lg" />
+                        <img src="/lovable-uploads/2339c01b-c8c6-445f-88aa-4b2bfc2a5148.png" alt="YouTube Play Buttons - First Million" className="w-full h-full object-cover rounded-lg" />
                       </div>
                     ) : index === 2 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
