@@ -178,7 +178,7 @@ const Index = () => {
               <img alt="Content planning" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/e910660d-46fb-4ba2-a505-e463f7bc0cc7.png" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden -translate-y-8">
-              <img alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/5ff7b329-f899-4833-bbf4-ae099793e34e.jpg" />
+              <img alt="Video production" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/56914e69-e5d4-4c14-8655-02dca619bdae.jpg" />
             </div>
             <div className="aspect-square rounded-lg overflow-hidden">
               <img alt="Equipment setup" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="/lovable-uploads/b16f164a-d784-45dd-ab2c-789efd190844.jpg" />
