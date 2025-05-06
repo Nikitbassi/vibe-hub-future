@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -25,25 +26,29 @@ const About = () => {
     };
   }, []);
   const timelineData = [{
-    year: '2018',
-    title: 'The Beginning',
-    description: 'NB Media was founded in a small apartment with just one camera and a big dream.'
-  }, {
-    year: '2019',
-    title: 'First Million',
-    description: 'Hit 1 million subscribers and expanded to a small team of 5 creators.'
-  }, {
     year: '2020',
-    title: 'Studio Launch',
-    description: 'Opened our first professional studio space and doubled our team size.'
+    title: 'The Beginning',
+    description: 'Started in a small apartment with one camera and a dream.'
+  }, {
+    year: '2021',
+    title: 'First Million',
+    description: 'Reached 1 million subscribers and grew to a team of 5.'
   }, {
     year: '2022',
-    title: 'Global Expansion',
-    description: 'Began creating content in multiple languages and reached 10 million subscribers.'
+    title: 'First Office',
+    description: 'Opened our first real office and doubled our team.'
   }, {
     year: '2023',
+    title: 'Global Expansion',
+    description: 'Created content in multiple languages and hit 10 million subscribers.'
+  }, {
+    year: '2024',
+    title: 'Chandigarh Headquarters',
+    description: 'Built our HQ in Chandigarh with open workspaces and a creative environment.'
+  }, {
+    year: '2025',
     title: 'Today',
-    description: 'Leading the industry with innovative formats and a team of 50+ creative professionals.'
+    description: 'Now 90 team members strong, leading India\'s YouTube content creation.'
   }];
   return <div className="relative min-h-screen bg-nbdark text-white overflow-hidden hide-cursor">
       <AnimatedCursor />
@@ -108,6 +113,13 @@ const About = () => {
                   </div>
                 </div>)}
             </div>
+          </div>
+          
+          <div className="mt-12 text-center hidden-element opacity-0 animate-fade-in" style={{
+            animationDelay: "2.2s",
+            animationFillMode: "forwards"
+          }}>
+            <p className="text-lg text-nbgray mb-6">Join us as we continue to grow.</p>
           </div>
         </Section>
         
