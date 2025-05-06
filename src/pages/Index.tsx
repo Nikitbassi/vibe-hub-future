@@ -230,7 +230,7 @@ const Index = () => {
           <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
             <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
             <OptimizedImage 
-              src="/lovable-uploads/1d043cdc-673c-4c86-980f-888c5cd030c3.png" 
+              src="/lovable-uploads/c88ad485-5095-411b-ac7c-e05089ccb1fb.png" 
               alt="NB Media team culture" 
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
             />
