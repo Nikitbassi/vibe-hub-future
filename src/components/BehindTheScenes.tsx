@@ -15,13 +15,13 @@ const BehindTheScenes: React.FC = () => {
         <div className="relative rounded-xl overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent opacity-50 z-10"></div>
           <img 
-            src="https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0" 
-            alt="Behind the scenes" 
+            src="/lovable-uploads/345c3448-1819-4acb-903c-02a92e6674fa.png" 
+            alt="Chocolate Day Fun at Office" 
             className="w-full aspect-video object-cover transition-transform duration-700 group-hover:scale-110"
           />
           <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-            <h3 className="text-xl font-bold font-display mb-2">Studio Setup</h3>
-            <p className="text-nbgray text-sm">Where magic happens daily. Our main studio equipped with the latest gear.</p>
+            <h3 className="text-xl font-bold font-display mb-2">Office Fun</h3>
+            <p className="text-nbgray text-sm">Chocolate Day celebrations at our office. We work hard, but also know how to have fun!</p>
           </div>
         </div>
         
