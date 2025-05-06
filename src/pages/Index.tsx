@@ -8,6 +8,8 @@ import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
 import CountUp from '@/components/CountUp';
 import FAQ from '@/components/FAQ';
 import Section from '@/components/Section';
+import { OptimizedImage } from '@/components/OptimizedImage';
+
 const Index = () => {
   // Smooth scroll for anchor links
   useEffect(() => {
@@ -227,7 +229,11 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 hidden-element">
           <div className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer">
             <div className="absolute inset-0 bg-gradient-to-t from-nbdark via-transparent to-transparent z-10"></div>
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a" alt="NB Media life" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+            <OptimizedImage 
+              src="/lovable-uploads/1d043cdc-673c-4c86-980f-888c5cd030c3.png" 
+              alt="NB Media team culture" 
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" 
+            />
             <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
               <h3 className="text-xl font-bold mb-2">Team Culture</h3>
               <p className="text-nbgray text-sm">Where creativity meets collaboration in a dynamic environment.</p>
