@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -7,15 +6,6 @@ import Section from '../components/Section';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
-import { 
-  Calendar, 
-  Building, 
-  Users, 
-  Globe, 
-  Home,
-  Trophy
-} from 'lucide-react';
-
 const About = () => {
   // For intersection observer animations
   useEffect(() => {
@@ -34,47 +24,27 @@ const About = () => {
       hiddenElements.forEach(element => observer.unobserve(element));
     };
   }, []);
-  
-  // Updated timeline data
-  const timelineData = [
-    {
-      year: '2020',
-      title: 'The Beginning',
-      description: 'Started in a small apartment with one camera and a dream.',
-      icon: <Home className="w-6 h-6" />
-    }, 
-    {
-      year: '2021',
-      title: 'First Million',
-      description: 'Reached 1 million subscribers and grew to a team of 5.',
-      icon: <Trophy className="w-6 h-6" />
-    }, 
-    {
-      year: '2022',
-      title: 'First Office',
-      description: 'Opened our first real office and doubled our team.',
-      icon: <Building className="w-6 h-6" />
-    }, 
-    {
-      year: '2023',
-      title: 'Global Expansion',
-      description: 'Created content in multiple languages and hit 10 million subscribers.',
-      icon: <Globe className="w-6 h-6" />
-    }, 
-    {
-      year: '2024',
-      title: 'Chandigarh Headquarters',
-      description: 'Built our HQ in Chandigarh with open workspaces and a creative environment.',
-      icon: <Building className="w-6 h-6" />
-    }, 
-    {
-      year: '2025',
-      title: 'Today',
-      description: 'Now 90 team members strong, leading India\'s YouTube content creation.',
-      icon: <Users className="w-6 h-6" />
-    }
-  ];
-  
+  const timelineData = [{
+    year: '2018',
+    title: 'The Beginning',
+    description: 'NB Media was founded in a small apartment with just one camera and a big dream.'
+  }, {
+    year: '2019',
+    title: 'First Million',
+    description: 'Hit 1 million subscribers and expanded to a small team of 5 creators.'
+  }, {
+    year: '2020',
+    title: 'Studio Launch',
+    description: 'Opened our first professional studio space and doubled our team size.'
+  }, {
+    year: '2022',
+    title: 'Global Expansion',
+    description: 'Began creating content in multiple languages and reached 10 million subscribers.'
+  }, {
+    year: '2023',
+    title: 'Today',
+    description: 'Leading the industry with innovative formats and a team of 50+ creative professionals.'
+  }];
   return <div className="relative min-h-screen bg-nbdark text-white overflow-hidden hide-cursor">
       <AnimatedCursor />
       <Navbar />
@@ -102,7 +72,7 @@ const About = () => {
         </Section>
         
         {/* Timeline Section */}
-        <Section className="relative py-20">
+        <Section className="relative">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-12 text-center hidden-element opacity-0 animate-fade-in" style={{
           animationDelay: "0.6s",
           animationFillMode: "forwards"
@@ -116,49 +86,27 @@ const About = () => {
             
             {/* Timeline events */}
             <div className="space-y-12 md:space-y-24 relative z-10">
-              {timelineData.map((item, index) => (
-                <div 
-                  key={item.year} 
-                  className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-8 hidden-element opacity-0 animate-fade-in`} 
-                  style={{
-                    animationDelay: `${0.8 + index * 0.2}s`,
-                    animationFillMode: "forwards"
-                  }}
-                >
+              {timelineData.map((item, index) => <div key={item.year} className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-6 md:gap-8 hidden-element opacity-0 animate-fade-in`} style={{
+              animationDelay: `${0.8 + index * 0.2}s`,
+              animationFillMode: "forwards"
+            }}>
                   <div className="w-full md:w-1/2 text-center md:text-right md:pr-8">
                     <div className={index % 2 === 0 ? 'md:text-right' : 'md:text-left'}>
-                      <div className="flex items-center justify-center md:justify-end gap-3 mb-2">
-                        <span className="text-gradient font-display text-3xl font-bold">{item.year}</span>
-                        {index % 2 === 0 && <div className="bg-gradient-to-r from-nborange to-nbyellow p-2 rounded-full">{item.icon}</div>}
-                      </div>
+                      <span className="text-gradient font-display text-3xl font-bold">{item.year}</span>
                       <h3 className="text-xl font-bold mt-2 mb-3">{item.title}</h3>
                       <p className="text-nbgray">{item.description}</p>
                     </div>
                   </div>
                   
                   {/* Timeline node */}
-                  <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-gradient-to-r from-nborange to-nbyellow shadow-glow items-center justify-center">
-                    {item.icon}
-                  </div>
+                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-r from-nborange to-nbyellow shadow-glow"></div>
                   
                   <div className="w-full md:w-1/2 md:pl-8">
-                    <div className={`${index % 2 !== 0 ? 'flex items-center md:justify-start gap-3 mb-2' : 'hidden'}`}>
-                      {index % 2 !== 0 && <div className="bg-gradient-to-r from-nborange to-nbyellow p-2 rounded-full">{item.icon}</div>}
-                      <span className="text-gradient font-display text-3xl font-bold md:hidden">{item.year}</span>
-                    </div>
-                    
-                    {index % 2 === 0 ? (
-                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img 
-                          src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`} 
-                          alt={`NB Media in ${item.year}`} 
-                          className="w-full h-full object-cover rounded-lg" 
-                        />
-                      </div>
-                    ) : null}
+                    {index % 2 === 0 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <img src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`} alt={`NB Media in ${item.year}`} className="w-full h-full object-cover rounded-lg" />
+                      </div> : null}
                   </div>
-                </div>
-              ))}
+                </div>)}
             </div>
           </div>
         </Section>
@@ -273,5 +221,4 @@ const About = () => {
     }} />
     </div>;
 };
-
 export default About;
