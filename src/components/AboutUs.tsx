@@ -1,6 +1,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Section from './Section';
+import OptimizedImage from './OptimizedImage';
 
 const AboutUs: React.FC = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -156,8 +157,8 @@ const AboutUs: React.FC = () => {
         <div className="relative aspect-square w-full max-w-md mx-auto md:ml-auto opacity-0 hidden-element transition-all duration-1000 delay-600 float-animation" style={{ transform: 'translateY(40px)' }}>
           <div className="absolute inset-0 bg-gradient-to-br from-nborange to-nbyellow opacity-60 rounded-2xl transform rotate-3 float-animation"></div>
           <div className="absolute inset-0 bg-nbdark rounded-2xl overflow-hidden image-wrapper">
-            <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
+            <OptimizedImage 
+              src="/lovable-uploads/9e22850f-ecfe-4d86-a563-9fb73cdcd6da.png" 
               alt="Founder working on content" 
               className="w-full h-full object-cover transform transition-transform duration-700 hover:scale-110"
             />
