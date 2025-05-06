@@ -7,6 +7,7 @@ import Section from '../components/Section';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+
 const About = () => {
   // For intersection observer animations
   useEffect(() => {
@@ -50,6 +51,7 @@ const About = () => {
     title: 'Today',
     description: 'Now 90 team members strong, leading India\'s YouTube content creation.'
   }];
+
   return <div className="relative min-h-screen bg-nbdark text-white overflow-hidden hide-cursor">
       <AnimatedCursor />
       <Navbar />
@@ -107,9 +109,16 @@ const About = () => {
                   <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-r from-nborange to-nbyellow shadow-glow"></div>
                   
                   <div className="w-full md:w-1/2 md:pl-8">
-                    {index % 2 === 0 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                    {/* Only show image for the first entry (2020) */}
+                    {index === 0 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <img src="/lovable-uploads/ab954229-a185-4be5-95b1-8d9a1456d46c.png" alt="NB Media in 2020 - The Beginning" className="w-full h-full object-cover rounded-lg" />
+                      </div>
+                    ) : index % 2 === 0 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`} alt={`NB Media in ${item.year}`} className="w-full h-full object-cover rounded-lg" />
-                      </div> : null}
+                      </div>
+                    ) : null}
                   </div>
                 </div>)}
             </div>
@@ -233,4 +242,5 @@ const About = () => {
     }} />
     </div>;
 };
+
 export default About;
