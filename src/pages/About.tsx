@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -125,6 +126,10 @@ const About = () => {
                     ) : index === 3 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
                         <img src="/lovable-uploads/ff567d46-2f67-4473-bc30-665c08f5db46.png" alt="NB Media Global Team - Global Expansion" className="w-full h-full object-cover rounded-lg" />
+                      </div>
+                    ) : index === 4 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <img src="/lovable-uploads/acee3d0b-7b77-4b17-8a4e-de5415c3f2a0.png" alt="NB Media Chandigarh Headquarters" className="w-full h-full object-cover rounded-lg" />
                       </div>
                     ) : index % 2 === 0 ? (
                       <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
