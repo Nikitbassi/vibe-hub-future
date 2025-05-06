@@ -8,7 +8,7 @@ import { ArrowRight, BriefcaseBusiness } from 'lucide-react';
 import CountUp from '@/components/CountUp';
 import FAQ from '@/components/FAQ';
 import Section from '@/components/Section';
-import { OptimizedImage } from '@/components/OptimizedImage';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const Index = () => {
   // Smooth scroll for anchor links
