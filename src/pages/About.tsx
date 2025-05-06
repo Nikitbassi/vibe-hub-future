@@ -6,9 +6,15 @@ import Section from '../components/Section';
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+import OptimizedImage from '../components/OptimizedImage';
+import { initializePerformanceOptimizations } from '../utils/preloadResources';
+
 const About = () => {
   // For intersection observer animations
   useEffect(() => {
+    // Initialize performance optimizations
+    initializePerformanceOptimizations();
+
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -16,14 +22,19 @@ const About = () => {
         }
       });
     }, {
-      threshold: 0.1
+      threshold: 0.1,
+      rootMargin: '50px'
     });
+    
+    // Use a more efficient selector and batched operations
     const hiddenElements = document.querySelectorAll('.hidden-element');
     hiddenElements.forEach(element => observer.observe(element));
+    
     return () => {
-      hiddenElements.forEach(element => observer.unobserve(element));
+      observer.disconnect();
     };
   }, []);
+
   const timelineData = [{
     year: '2020',
     title: 'The Beginning',
@@ -56,8 +67,8 @@ const About = () => {
       <div className="pt-24 md:pt-32">
         {/* Hero Section */}
         <Section className="relative overflow-hidden">
-          <div className="absolute top-1/4 -left-64 w-96 h-96 rounded-full bg-nborange/20 blur-[100px]"></div>
-          <div className="absolute bottom-0 -right-64 w-96 h-96 rounded-full bg-nbyellow/10 blur-[100px]"></div>
+          <div className="absolute top-1/4 -left-64 w-96 h-96 rounded-full bg-nborange/20 blur-[100px] will-change-transform"></div>
+          <div className="absolute bottom-0 -right-64 w-96 h-96 rounded-full bg-nbyellow/10 blur-[100px] will-change-transform"></div>
           
           <div className="relative z-10 max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold font-display mb-6 hidden-element opacity-0 animate-fade-in" style={{
@@ -103,25 +114,69 @@ const About = () => {
                   </div>
                   
                   {/* Timeline node */}
-                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-r from-nborange to-nbyellow shadow-glow"></div>
+                  <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-5 h-5 rounded-full bg-gradient-to-r from-nborange to-nbyellow shadow-glow will-change-transform"></div>
                   
                   <div className="w-full md:w-1/2 md:pl-8">
-                    {/* Show specific images for each year */}
-                    {index === 0 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img src="/lovable-uploads/ab954229-a185-4be5-95b1-8d9a1456d46c.png" alt="NB Media in 2020 - The Beginning" className="w-full h-full object-cover rounded-lg" />
-                      </div> : index === 1 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img src="/lovable-uploads/2339c01b-c8c6-445f-88aa-4b2bfc2a5148.png" alt="YouTube Play Buttons - First Million" className="w-full h-full object-cover rounded-lg" />
-                      </div> : index === 2 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img src="/lovable-uploads/2d63caf7-5c54-4e4f-99bd-d626e0523cb8.png" alt="NB Media Office - First Office" className="w-full h-full object-cover rounded-lg" />
-                      </div> : index === 3 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img src="/lovable-uploads/ff567d46-2f67-4473-bc30-665c08f5db46.png" alt="NB Media Global Team - Global Expansion" className="w-full h-full object-cover rounded-lg" />
-                      </div> : index === 4 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img src="/lovable-uploads/acee3d0b-7b77-4b17-8a4e-de5415c3f2a0.png" alt="NB Media Chandigarh Headquarters" className="w-full h-full object-cover rounded-lg" />
-                      </div> : index === 5 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img src="/lovable-uploads/18bb5ad0-b108-4ced-a976-89362974ea1a.png" alt="NB Media Today - Team Members" className="w-full h-full object-cover rounded-lg" />
-                      </div> : index % 2 === 0 ? <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
-                        <img src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`} alt={`NB Media in ${item.year}`} className="w-full h-full object-cover rounded-lg" />
-                      </div> : null}
+                    {/* Show specific images for each year with optimized image component */}
+                    {index === 0 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <OptimizedImage 
+                          src="/lovable-uploads/ab954229-a185-4be5-95b1-8d9a1456d46c.png" 
+                          alt="NB Media in 2020 - The Beginning" 
+                          className="w-full h-full object-cover rounded-lg"
+                          priority={index <= 1} // Only prioritize first two images
+                        />
+                      </div>
+                    ) : index === 1 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <OptimizedImage 
+                          src="/lovable-uploads/2339c01b-c8c6-445f-88aa-4b2bfc2a5148.png" 
+                          alt="YouTube Play Buttons - First Million" 
+                          className="w-full h-full object-cover rounded-lg"
+                          priority={index <= 1}
+                        />
+                      </div>
+                    ) : index === 2 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <OptimizedImage 
+                          src="/lovable-uploads/2d63caf7-5c54-4e4f-99bd-d626e0523cb8.png" 
+                          alt="NB Media Office - First Office" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </div>
+                    ) : index === 3 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <OptimizedImage 
+                          src="/lovable-uploads/ff567d46-2f67-4473-bc30-665c08f5db46.png" 
+                          alt="NB Media Global Team - Global Expansion" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </div>
+                    ) : index === 4 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <OptimizedImage 
+                          src="/lovable-uploads/acee3d0b-7b77-4b17-8a4e-de5415c3f2a0.png" 
+                          alt="NB Media Chandigarh Headquarters" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </div>
+                    ) : index === 5 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <OptimizedImage 
+                          src="/lovable-uploads/18bb5ad0-b108-4ced-a976-89362974ea1a.png" 
+                          alt="NB Media Today - Team Members" 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </div>
+                    ) : index % 2 === 0 ? (
+                      <div className="h-full w-full rounded-lg overflow-hidden transition-transform hover:scale-[1.02] duration-500">
+                        <OptimizedImage 
+                          src={`https://images.unsplash.com/photo-${1550000000000 + index * 10000000}`}
+                          alt={`NB Media in ${item.year}`} 
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                      </div>
+                    ) : null}
                   </div>
                 </div>)}
             </div>
@@ -158,9 +213,14 @@ const About = () => {
             animationDelay: "2s",
             animationFillMode: "forwards"
           }}>
-              <div className="absolute inset-0 bg-gradient-to-br from-nborange to-nbyellow opacity-20 rounded-2xl transform rotate-3"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-nborange to-nbyellow opacity-20 rounded-2xl transform rotate-3 will-change-transform"></div>
               <div className="relative aspect-square rounded-2xl overflow-hidden">
-                <img alt="NB Media Founder" className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="/lovable-uploads/7ce9d1ab-5fc8-4ff4-b24f-69f0fc33d522.jpg" />
+                <OptimizedImage 
+                  src="/lovable-uploads/7ce9d1ab-5fc8-4ff4-b24f-69f0fc33d522.jpg"
+                  alt="NB Media Founder" 
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  priority={true}
+                />
               </div>
             </div>
           </div>
@@ -189,7 +249,7 @@ const About = () => {
             animationDelay: `${2.4 + index * 0.2}s`,
             animationFillMode: "forwards"
           }}>
-                <div className="absolute inset-x-0 h-1 top-0 bg-gradient-to-r from-nborange to-nbyellow transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+                <div className="absolute inset-x-0 h-1 top-0 bg-gradient-to-r from-nborange to-nbyellow transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 will-change-transform"></div>
                 <CardContent className="pt-8">
                   <h3 className="text-2xl font-bold font-display mb-3">{value.title}</h3>
                   <p className="text-nbgray">{value.description}</p>
@@ -240,6 +300,16 @@ const About = () => {
         
         .float-animation {
           animation: float 5s ease-in-out infinite;
+        }
+        
+        /* Add will-change-transform to animations for better rendering performance */
+        .animate-fade-in, .transition-transform {
+          will-change: opacity, transform;
+        }
+        
+        /* Add GPU acceleration hints to improve animation performance */
+        .animate-fade-in, .transition-transform, .hover\:scale-105, .hover\:scale-\[1\.02\] {
+          transform: translateZ(0);
         }
       `
     }} />
